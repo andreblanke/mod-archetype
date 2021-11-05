@@ -1,0 +1,4 @@
+.envrc linguist-language=shell
+
+# These are explicitly Windows files and should use CRLF
+*.bat text eol=crlf

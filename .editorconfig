@@ -1,0 +1,11 @@
+root = true
+
+[*]
+indent_size  = 4
+indent_style = space
+
+[*.accesswidener]
+indent_style = tab
+
+[*.json]
+indent_size = 2

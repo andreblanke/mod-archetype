@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+issueTrackerURL="https://github.com/andreblanke/minecraft-mod-template/issues"
+
+[[mods]]
+modId="modid"
+version="1.0.0"
+displayName="Mod Name"
+logoFile="modid.png"
+authors="andreblanke"
+description='''
+Description
+'''
+
+[[dependencies.modid]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.17.1,1.18)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.modid]]
+modId="forge"
+mandatory=true
+versionRange="[36,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.modid]]
+modId="cloth_config"
+mandatory=false
+versionRange="[5.0.38,)"
+ordering="NONE"
+side="CLIENT"

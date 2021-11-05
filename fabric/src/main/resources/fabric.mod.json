@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "modid",
+  "version": "1.0.0",
+
+  "name": "Mod Name",
+  "description": "Description",
+  "contact": {
+    "homepage": "https://github.com/andreblanke/minecraft-mod-template",
+    "issues": "https://github.com/andreblanke/minecraft-mod-template/issues"
+  },
+  "authors": [
+    "andreblanke"
+  ],
+
+  "license": "All rights reserved",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.andreblanke.mcmods.modid.ModFabric"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16",
+    "mm": ">=2.3"
+  }
+}
