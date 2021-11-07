@@ -6,17 +6,20 @@
   "name": "Mod Name",
   "description": "Description",
   "contact": {
-    "homepage": "https://github.com/andreblanke/minecraft-mod-template",
-    "issues": "https://github.com/andreblanke/minecraft-mod-template/issues"
+    "homepage": "https://github.com/andreblanke/mod-template",
+    "issues": "https://github.com/andreblanke/mod-template/issues"
   },
   "authors": [
     "andreblanke"
   ],
 
-  "license": "All rights reserved",
+  "license": "All Rights Reserved",
 
   "environment": "*",
   "entrypoints": {
+    "mm:early_risers": [
+      "dev.andreblanke.mcmods.modid.asm.EarlyRiser"
+    ],
     "main": [
       {
         "adapter": "kotlin",
