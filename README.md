@@ -17,6 +17,7 @@ The template is already configured to support [Mixins](https://github.com/Sponge
 - [Troubleshooting](#troubleshooting)
   - [Fabric IntelliJ IDEA run/debug configurations not generating](#fabric-intellij-idea-rundebug-configurations-not-generating)
   - [Could not initialize class org.jetbrains.kotlin.com.intellij.pom.java.LanguageLevel](#could-not-initialize-class-orgjetbrainskotlincomintellijpomjavalanguagelevel)
+- [To-do](#to-do)
 
 ## Project structure
 
@@ -123,3 +124,10 @@ java.lang.NoClassDefFoundError: Could not initialize class org.jetbrains.kotlin.
 You likely started the Gradle daemon with a currently unsupported JDK pointed to by your `JAVA_HOME` environment
 variable. In my case this occurred because I was using JDK 17. Changing `JAVA_HOME` to a path containing a JDK
 installation of version 16 and killing all active Gradle daemons resolved the issue.
+
+## To-do
+
+- [ ] Add `org.apache.logging.log4j:logj4-api-kotlin:1.1.0` dependency. This is currently not possible because Forge
+      is broken. While a [fork](https://github.com/OrionDevelopment/MinecraftForge/tree/fix/1.17.x%2Flibrary-loading)
+      of Forge where the problems seem to have been resolved exists the changes have not been upstreamed yet.
+      See the `1.17.X/log4-api-kotlin` branch of this repository for a start of the changes.
