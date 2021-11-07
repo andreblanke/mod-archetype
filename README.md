@@ -131,3 +131,8 @@ installation of version 16 and killing all active Gradle daemons resolved the is
       is broken. While a [fork](https://github.com/OrionDevelopment/MinecraftForge/tree/fix/1.17.x%2Flibrary-loading)
       of Forge where the problems seem to have been resolved exists the changes have not been upstreamed yet.
       See the `1.17.X/log4-api-kotlin` branch of this repository for a start of the changes.
+- [ ] Centralize dependency version declaration by making use of Gradle property expansion and only declaring versions
+      inside of `Mod.Dependencies`. The challenge here is that only declarations of the form `object <name> { }` can be
+      accessed without reflection but cannot directly be used with property expansion (because `<name>` is a class and
+      not a property of `Mod`), while declarations such as `val <name> = object { }` can be used with property
+      expansion but also only accessed via reflection because the type of `<name>` is `Any`.
