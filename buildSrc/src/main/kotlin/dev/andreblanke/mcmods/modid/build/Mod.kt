@@ -16,7 +16,7 @@ object Mod : Versioned {
     const val AUTHOR  = "andreblanke"
     const val LICENSE = "All Rights Reserved"
 
-    const val DESCRIPTION = "Description5"
+    const val DESCRIPTION = "Description"
 
     val properties: Map<String, Any?>
         get() = TreeMap()

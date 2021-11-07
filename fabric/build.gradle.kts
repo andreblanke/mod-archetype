@@ -59,6 +59,7 @@ dependencies {
         group   = "net.fabricmc",
         name    = "fabric-language-kotlin",
         version = Mod.Dependencies.Fabric.Language.Kotlin.version)
+    // Optional, but required for localization using en_us.json and other lang files.
     modImplementation(
         group   = "net.fabricmc.fabric-api",
         name    = "fabric-api",
