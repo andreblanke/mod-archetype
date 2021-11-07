@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "1.0.0",
+  "id": "${Mod.ID}",
+  "version": "${Mod.VERSION}",
 
-  "name": "Mod Name",
-  "description": "Description",
+  "name": "${Mod.NAME}",
+  "description": "${Mod.DESCRIPTION}",
   "contact": {
-    "homepage": "https://github.com/andreblanke/mod-template",
-    "issues": "https://github.com/andreblanke/mod-template/issues"
+    "homepage": "${Mod.Contact.HOMEPAGE}",
+    "issues": "${Mod.Contact.ISSUES}"
   },
   "authors": [
-    "andreblanke"
+    "${Mod.AUTHOR}"
   ],
 
-  "license": "All Rights Reserved",
+  "license": "${Mod.LICENSE}",
 
   "environment": "*",
   "entrypoints": {

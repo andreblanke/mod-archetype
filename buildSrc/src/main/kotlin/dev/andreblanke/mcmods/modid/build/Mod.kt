@@ -6,24 +6,29 @@ interface Versioned {
     val version: String
 }
 
-// Unused properties may be used implicitly as part of Mod.properties.
-@Suppress("unused")
+// "Unused" properties may be used implicitly as part of the Gradle property expansion.
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 object Mod : Versioned {
 
     const val ID   = "modid"
     const val NAME = "Mod Name"
 
     const val AUTHOR  = "andreblanke"
-    const val LICENSE = "All rights reserved"
+    const val LICENSE = "All Rights Reserved"
 
-    const val DESCRIPTION = ""
-
-    val deps = Dependencies
+    const val DESCRIPTION = "Description"
 
     val properties: Map<String, Any?>
         get() = TreeMap()
 
-    override val version = "1.0.0"
+    const val VERSION = "1.0.0"
+    override val version
+        get() = VERSION
+
+    val Contact = object {
+        val HOMEPAGE = "https://github.com/andreblanke/mod-template"
+        val ISSUES   = "https://github.com/andreblanke/mod-template/issues"
+    }
 
     object Dependencies {
 

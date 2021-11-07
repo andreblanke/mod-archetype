@@ -80,3 +80,18 @@ dependencies {
         exclude(group = "net.fabricmc.fabric-api")
     }
 }
+
+tasks {
+    processResources {
+        filesMatching("fabric.mod.json") {
+            expand("Mod" to Mod)
+        }
+
+        /*
+         * Always forces the processResource task to run.
+         *
+         * TODO: Check if this is really necessary.
+         */
+        outputs.upToDateWhen { false }
+    }
+}
