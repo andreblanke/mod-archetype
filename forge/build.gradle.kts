@@ -1,3 +1,5 @@
+import java.util.stream.Collectors.joining
+
 import net.minecraftforge.gradle.common.util.RunConfig
 import net.minecraftforge.gradle.userdev.UserDevExtension
 import net.minecraftforge.gradle.userdev.DependencyManagementExtension
@@ -6,6 +8,8 @@ import dev.andreblanke.mcmods.modid.build.Mod
 
 plugins {
     kotlin("jvm")
+
+    id("com.github.johnrengelman.shadow")
 }
 
 buildscript {
@@ -64,6 +68,23 @@ configure<UserDevExtension> {
     }
 }
 
+//#region !nonmclibs workaround
+configurations {
+    implementation.get().extendsFrom(create("library"))
+}
+
+the<UserDevExtension>().runs.all {
+    lazyToken("minecraft_classpath") {
+        configurations["library"]
+            .copyRecursive()
+            .resolve()
+            .stream()
+            .map(File::getAbsolutePath)
+            .collect(joining(File.pathSeparator))
+    }
+}
+//#endregion
+
 repositories {
     maven {
         name = "kotlinforforge"
@@ -81,6 +102,10 @@ dependencies {
         name    = "forge",
         version = Mod.Dependencies.Forge.version)
 
+    shadow("library"(
+        group   = "org.apache.logging.log4j",
+        name    = "log4j-api-kotlin",
+        version = "1.1.0"))
     implementation(
         group   = "thedarkcolour",
         name    = "kotlinforforge",
@@ -88,4 +113,13 @@ dependencies {
 
     val fg = project.the<DependencyManagementExtension>()
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:${Mod.Dependencies.ClothConfigApi.version}"))
+}
+
+tasks {
+    build {
+        dependsOn("shadowJar")
+    }
+    withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>().all {
+        configurations = mutableListOf<FileCollection>(project.configurations.shadow.get())
+    }
 }

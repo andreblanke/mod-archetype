@@ -1,13 +1,10 @@
 package dev.andreblanke.mcmods.modid
 
-import org.apache.logging.log4j.Logger
-import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.kotlin.Logging
 
 abstract class Mod protected constructor() {
 
-    companion object {
+    companion object : Logging {
         const val ID = "modid"
-
-        val logger: Logger = LogManager.getLogger()
     }
 }
