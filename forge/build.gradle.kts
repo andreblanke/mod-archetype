@@ -14,11 +14,10 @@ buildscript {
         classpath(group = "org.spongepowered",         name = "mixingradle", version = "0.7-SNAPSHOT")
     }
 }
+// Required for genVSCodeRuns task. Should be applied before org.spongepowered.mixin to enable the integration.
+apply(plugin = "eclipse")
 apply(plugin = "net.minecraftforge.gradle")
 apply(plugin = "org.spongepowered.mixin")
-
-// Required for genVSCodeRuns task.
-apply(plugin = "eclipse")
 
 sourceSets {
     main {
