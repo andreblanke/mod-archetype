@@ -4,6 +4,10 @@ import net.minecraftforge.gradle.userdev.DependencyManagementExtension
 
 import dev.andreblanke.mcmods.modid.build.Mod
 
+plugins {
+    kotlin("jvm")
+}
+
 buildscript {
     dependencies {
         classpath(group = "net.minecraftforge.gradle", name = "ForgeGradle", version = "5.1.+")
@@ -16,14 +20,16 @@ apply(plugin = "org.spongepowered.mixin")
 // Required for genVSCodeRuns task.
 apply(plugin = "eclipse")
 
-plugins {
-    `java-library`
-}
-
 sourceSets {
     main {
         java.srcDir("../common-forge/src/main/java")
         resources.srcDir("../common-forge/src/main/resources")
+    }
+}
+
+kotlin {
+    sourceSets["main"].apply {
+        kotlin.srcDir("../common-forge/src/main/kotlin")
     }
 }
 
@@ -58,20 +64,28 @@ configure<UserDevExtension> {
     }
 }
 
+repositories {
+    maven {
+        name = "kotlinforforge"
+        url  = uri("https://thedarkcolour.github.io/KotlinForForge/")
+    }
+    maven {
+        name = "shedaniel"
+        url  = uri("https://maven.shedaniel.me/")
+    }
+}
+
 dependencies {
     "minecraft"(
         group   = "net.minecraftforge",
         name    = "forge",
         version = Mod.Dependencies.Forge.version)
 
+    implementation(
+        group   = "thedarkcolour",
+        name    = "kotlinforforge",
+        version = Mod.Dependencies.Forge.Language.Kotlin.version)
+
     val fg = project.the<DependencyManagementExtension>()
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:${Mod.Dependencies.ClothConfigApi.version}"))
-}
-
-tasks {
-    processResources {
-        filesMatching("mods.toml") {
-            // expand(Mod.properties)
-        }
-    }
 }

@@ -1,6 +1,8 @@
 import dev.andreblanke.mcmods.modid.build.Mod
 
 plugins {
+    kotlin("jvm")
+
     id("fabric-loom") version "0.9-SNAPSHOT"
 }
 
@@ -8,6 +10,12 @@ sourceSets {
     main {
         java.srcDir("../common-fabric/src/main/java")
         resources.srcDir("../common-fabric/src/main/resources")
+    }
+}
+
+kotlin {
+    sourceSets["main"].apply {
+        kotlin.srcDir("../common-fabric/src/main/kotlin")
     }
 }
 
@@ -24,6 +32,11 @@ repositories {
         name = "TerraformersMC"
         url  = uri("https://maven.terraformersmc.com/")
     }
+    maven {
+        name = "shedaniel"
+        url  = uri("https://maven.shedaniel.me/")
+    }
+    mavenCentral()
 }
 
 dependencies {
@@ -41,6 +54,10 @@ dependencies {
         group   = "net.fabricmc",
         name    = "fabric-loader",
         version = Mod.Dependencies.Fabric.Loader.version)
+    modImplementation(
+        group   = "net.fabricmc",
+        name    = "fabric-language-kotlin",
+        version = Mod.Dependencies.Fabric.Language.Kotlin.version)
     modImplementation(
         group   = "net.fabricmc.fabric-api",
         name    = "fabric-api",
@@ -61,13 +78,5 @@ dependencies {
         version = Mod.Dependencies.ClothConfigApi.version
     ) {
         exclude(group = "net.fabricmc.fabric-api")
-    }
-}
-
-tasks {
-    processResources {
-        filesMatching("fabric.mod.json") {
-            // expand(Mod.properties)
-        }
     }
 }

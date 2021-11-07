@@ -1,5 +1,7 @@
-modLoader="javafml"
-loaderVersion="[36,)"
+modLoader="kotlinforforge"
+loaderVersion="[2,)"
+# modLoader="javafml"
+# loaderVersion="[37,)"
 license="All Rights Reserved"
 issueTrackerURL="https://github.com/andreblanke/minecraft-mod-template/issues"
 

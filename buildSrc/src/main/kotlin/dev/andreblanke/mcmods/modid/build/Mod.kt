@@ -47,13 +47,25 @@ object Mod : Versioned {
             object Loader : Versioned {
                 override val version = "0.11.6"
             }
+
+            object Language {
+                object Kotlin : Versioned {
+                    override val version = "1.6.5+kotlin.1.5.31"
+                }
+            }
         }
 
         object Forge : Versioned {
-            private const val VERSION = "37.0.71"
+            private const val VERSION = "37.0.104"
 
             override val version: String
                 get() = "${Minecraft.version}-$VERSION"
+
+            object Language {
+                object Kotlin : Versioned {
+                    override val version = "2.0.1"
+                }
+            }
         }
 
         object Minecraft : Versioned {

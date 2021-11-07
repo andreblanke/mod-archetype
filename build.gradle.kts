@@ -1,8 +1,17 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin("jvm") version "1.6.0-RC2"
+}
+
 subprojects {
-    repositories {
-        maven {
-            name = "shedaniel"
-            url  = uri("https://maven.shedaniel.me/")
+    tasks {
+        withType(KotlinCompile::class.java).all {
+            kotlinOptions.jvmTarget = "1.8"
         }
     }
+}
+
+repositories {
+    mavenCentral()
 }
