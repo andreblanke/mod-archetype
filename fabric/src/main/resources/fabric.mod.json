@@ -25,6 +25,9 @@
         "adapter": "kotlin",
         "value": "dev.andreblanke.mcmods.modid.ModFabric"
       }
+    ],
+    "modmenu": [
+      "dev.andreblanke.mcmods.modid.integration.ModMenuIntegration"
     ]
   },
   "mixins": [

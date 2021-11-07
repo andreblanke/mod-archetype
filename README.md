@@ -5,12 +5,18 @@ on [ForgeGradle](https://github.com/MinecraftForge/ForgeGradle) and
 [Fabric Loom](https://github.com/FabricMC/fabric-loom) for its build system, as opposed to mods developed using
 [Architectury](https://github.com/architectury).
 
+The template is already configured to support [Mixins](https://github.com/SpongePowered/Mixin),
+[Cloth Config](https://github.com/shedaniel/cloth-config), and [Mod Menu](https://github.com/TerraformersMC/ModMenu).
+
 ## Table of contents
 
 - [Project structure](#project-structure)
-- [Using this template](#using-this-template)
+- [About the template](#about-the-template)
+  - [Tweaking](#tweaking)
+    - [Removal of Kotlin](#removal-of-kotlin)
 - [Troubleshooting](#troubleshooting)
   - [Fabric IntelliJ IDEA run/debug configurations not generating](#fabric-intellij-idea-rundebug-configurations-not-generating)
+  - [Could not initialize class org.jetbrains.kotlin.com.intellij.pom.java.LanguageLevel](#could-not-initialize-class-orgjetbrainskotlincomintellijpomjavalanguagelevel)
 
 ## Project structure
 
@@ -54,12 +60,54 @@ the modules `fabric` and `forge`. As a workaround we use symbolic links pointing
 - changes to files inside the `common-fabric`/`common-forge` not being immediately visible to its counterpart
   `common-forge`/`common-fabric` module (forcing a refresh of the project view using "Reload from Disk" works though).
 
-## Using this template
+## About the template
+
+### Tweaking
+
+#### Removal of Kotlin
+
+While the template is meant to be used primarily with Kotlin it can be changed to support only  Java relatively easy if
+more minimal build scripts are preferred. The following steps would need to be taken:
+
+1. Convert the Kotlin stub classes to Java and move them into the `java` source root
+2. Edit `build.gradle.kts` files
+    - Remove Kotlin Gradle plugin application at the top of each file
+    - Root build script:
+        - Remove `KotlinCompile` task configuration inside the `subprojects` block
+    - Submodule build scripts:
+        - Remove additional Kotlin source sets
+3. Fabric-specific:
+    - Remove `fabric-language-kotlin` dependency from `build.gradle.kts` and `fabric.mod.json`
+4. Forge-specific:
+    - Remove KotlinForForge dependency along with its repository from `build.gradle.kts`
+    - Tweak `mods.toml` to restore original `javafml` `modLoader` and `loaderVersion` settings
 
 ## Troubleshooting
 
 ### Fabric IntelliJ IDEA run/debug configurations not generating
 
-No fixes for this are known at the time of writing, though several people claim to have similar
-issues on the Fabric Discord. As a temporary workaround the two run configurations
-`fabric_runClient.xml` and `fabric_runServer.xml` have been committed to source control.
+No fixes for this are known at the time of writing, though several people claim to have similar issues on the Fabric
+Discord. As a temporary workaround the two run configurations `fabric_runClient.xml` and `fabric_runServer.xml` have
+been committed to source control.
+
+### Could not initialize class org.jetbrains.kotlin.com.intellij.pom.java.LanguageLevel
+
+```text
+java.lang.NoClassDefFoundError: Could not initialize class org.jetbrains.kotlin.com.intellij.pom.java.LanguageLevel
+	at org.jetbrains.kotlin.com.intellij.core.CoreLanguageLevelProjectExtension.<init>(CoreLanguageLevelProjectExtension.java:26)
+	at org.jetbrains.kotlin.com.intellij.core.JavaCoreProjectEnvironment.<init>(JavaCoreProjectEnvironment.java:42)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreProjectEnvironment.<init>(KotlinCoreProjectEnvironment.kt:26)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$ProjectEnvironment.<init>(KotlinCoreEnvironment.kt:121)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$Companion.createForProduction(KotlinCoreEnvironment.kt:425)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.createCoreEnvironment(K2JVMCompiler.kt:226)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:152)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:52)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:88)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:44)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:98)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1575) <17 internal lines>
+```
+
+You likely started the Gradle daemon with a currently unsupported JDK pointed to by your `JAVA_HOME` environment
+variable. In my case this occurred because I was using JDK 17. Changing `JAVA_HOME` to a path containing a JDK
+installation of version 16 and killing all active Gradle daemons resolved the issue.
