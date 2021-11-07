@@ -2,6 +2,7 @@ import dev.andreblanke.mcmods.modid.build.Mod
 
 plugins {
     kotlin("jvm")
+    `java-library`
 
     id("fabric-loom") version "0.9-SNAPSHOT"
 }
@@ -83,15 +84,11 @@ dependencies {
 
 tasks {
     processResources {
+        // Always forces the processResource task to run. TODO: Check if this is really necessary.
+        outputs.upToDateWhen { false }
+
         filesMatching("fabric.mod.json") {
             expand("Mod" to Mod)
         }
-
-        /*
-         * Always forces the processResource task to run.
-         *
-         * TODO: Check if this is really necessary.
-         */
-        outputs.upToDateWhen { false }
     }
 }

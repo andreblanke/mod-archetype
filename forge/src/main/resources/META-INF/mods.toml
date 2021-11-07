@@ -2,34 +2,34 @@ modLoader="kotlinforforge"
 loaderVersion="[2,)"
 # modLoader="javafml"
 # loaderVersion="[37,)"
-license="All Rights Reserved"
-issueTrackerURL="https://github.com/andreblanke/minecraft-mod-template/issues"
+license="${Mod.LICENSE}"
+issueTrackerURL="${Mod.Contact.ISSUES}"
 
 [[mods]]
-modId="modid"
-version="1.0.0"
-displayName="Mod Name"
-logoFile="modid.png"
-authors="andreblanke"
+modId="${Mod.ID}"
+version="${Mod.VERSION}"
+displayName="${Mod.NAME}"
+logoFile="${Mod.ID}.png"
+authors="${Mod.AUTHOR}"
 description='''
-Description
+${Mod.DESCRIPTION}
 '''
 
-[[dependencies.modid]]
+[[dependencies.${Mod.ID}]]
 modId="minecraft"
 mandatory=true
 versionRange="[1.17.1,1.18)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.modid]]
+[[dependencies.${Mod.ID}]]
 modId="forge"
 mandatory=true
 versionRange="[36,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.modid]]
+[[dependencies.${Mod.ID}]]
 modId="cloth_config"
 mandatory=false
 versionRange="[5.0.38,)"

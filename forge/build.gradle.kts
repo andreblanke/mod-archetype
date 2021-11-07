@@ -88,3 +88,17 @@ dependencies {
     val fg = project.the<DependencyManagementExtension>()
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:${Mod.Dependencies.ClothConfigApi.version}"))
 }
+
+tasks {
+    processResources {
+        // Always forces the processResource task to run. TODO: Check if this is really necessary.
+        outputs.upToDateWhen { false }
+
+        filesMatching("META-INF/mods.toml") {
+            expand("Mod" to Mod)
+        }
+        filesMatching("pack.mcmeta") {
+            expand("Mod" to Mod)
+        }
+    }
+}

@@ -84,6 +84,18 @@ more minimal build scripts are preferred. The following steps would need to be t
 
 ## Troubleshooting
 
+### IntelliJ IDEA shows problems regarding `fabric.mod.json` or `mods.toml`
+
+The problems are caused by checks stemming from the Minecraft Development or the Toml plugin because both are not aware
+that the two files are merely templates.
+
+In the case of `fabric.mod.json` the IDE should only consider the violation of the `id` pattern a problem which can
+easily be suppressed by switching from "Highlight: All Problems" to "Highlight: Syntax".
+
+`mods.toml` is more of a challenge because problems remain even if highlighting is changed to "Highlight: None".
+To get rid of the problems entirely one would either have to disable the Toml plugin or, if that is not an option,
+rename `mods.toml` to something else and tweak the `processResources` to output the processed file as `mods.toml`.
+
 ### Fabric IntelliJ IDEA run/debug configurations not generating
 
 No fixes for this are known at the time of writing, though several people claim to have similar issues on the Fabric
