@@ -16,7 +16,8 @@ build
 !.idea/runConfigurations/
 !.idea/runConfigurations/*
 
-# Minecraft Forge working directory
-run
+# Minecraft Fabric/Forge working directory
+**/run/**
+!fabric/run/.gitkeep
 
 .fabric
