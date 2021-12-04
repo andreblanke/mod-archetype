@@ -2,9 +2,8 @@ import dev.andreblanke.mcmods.modid.build.Mod
 
 plugins {
     kotlin("jvm")
-    `java-library`
 
-    id("fabric-loom") version "0.9-SNAPSHOT"
+    id("fabric-loom") version "0.10-SNAPSHOT"
 }
 
 sourceSets {
@@ -48,7 +47,7 @@ dependencies {
 
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.17.1:2021.10.17@zip")
+        // parchment("org.parchmentmc.data:parchment-1.17.1:2021.10.17@zip")
     })
 
     modImplementation(

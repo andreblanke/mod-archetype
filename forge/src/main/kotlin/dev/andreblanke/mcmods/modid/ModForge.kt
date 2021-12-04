@@ -1,9 +1,9 @@
 package dev.andreblanke.mcmods.modid
 
+import net.minecraftforge.client.ConfigGuiHandler.ConfigGuiFactory
 import net.minecraftforge.fml.ModList
 import net.minecraftforge.fml.ModLoadingContext
 import net.minecraftforge.fml.common.Mod
-import net.minecraftforge.fmlclient.ConfigGuiHandler.ConfigGuiFactory
 
 @Mod(dev.andreblanke.mcmods.modid.Mod.ID)
 object ModForge : dev.andreblanke.mcmods.modid.Mod() {
@@ -13,7 +13,7 @@ object ModForge : dev.andreblanke.mcmods.modid.Mod() {
             ModLoadingContext
                 .get()
                 .registerExtensionPoint(ConfigGuiFactory::class.java) {
-                    ConfigGuiFactory { _, parent -> ModForge.getConfigScreen(parent) }
+                    ConfigGuiFactory { _, parent -> getConfigScreen(parent) }
                 }
         }
     }

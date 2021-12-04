@@ -5,8 +5,12 @@ plugins {
 }
 
 subprojects {
+    afterEvaluate {
+        java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    }
+
     tasks {
-        withType(KotlinCompile::class.java).all {
+        withType<KotlinCompile>().all {
             kotlinOptions.jvmTarget = "1.8"
         }
     }

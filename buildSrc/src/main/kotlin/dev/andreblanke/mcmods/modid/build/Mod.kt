@@ -14,7 +14,7 @@ object Mod : Versioned {
     const val NAME = "Mod Name"
 
     const val AUTHOR  = "andreblanke"
-    const val LICENSE = "All Rights Reserved"
+    const val LICENSE = "MIT"
 
     const val DESCRIPTION = "Description"
 
@@ -33,16 +33,19 @@ object Mod : Versioned {
     object Dependencies {
 
         object ClothConfigApi : Versioned {
-            override val version = "5.0.38"
+            override val version = "6.0.45"
         }
 
         object ModMenu : Versioned {
-            override val version = "2.0.14"
+            override val version = "3.0.0"
         }
 
         object Fabric {
             object Api : Versioned {
-                override val version = "0.39.2+1.17"
+                private const val VERSION = "0.44.0"
+
+                override val version: String
+                    get() = "${VERSION}+${Minecraft.version}"
             }
 
             object Asm : Versioned {
@@ -50,31 +53,31 @@ object Mod : Versioned {
             }
 
             object Loader : Versioned {
-                override val version = "0.11.6"
+                override val version = "0.12.8"
             }
 
             object Language {
                 object Kotlin : Versioned {
-                    override val version = "1.6.5+kotlin.1.5.31"
+                    override val version = "1.7.0+kotlin.1.6.0"
                 }
             }
         }
 
         object Forge : Versioned {
-            private const val VERSION = "37.0.104"
+            private const val VERSION = "38.0.14"
 
             override val version: String
                 get() = "${Minecraft.version}-$VERSION"
 
             object Language {
                 object Kotlin : Versioned {
-                    override val version = "2.0.1"
+                    override val version = "3.0.0"
                 }
             }
         }
 
         object Minecraft : Versioned {
-            override val version = "1.17.1"
+            override val version = "1.18"
         }
     }
 }

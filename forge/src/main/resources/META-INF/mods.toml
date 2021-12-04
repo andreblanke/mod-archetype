@@ -1,5 +1,5 @@
 modLoader="kotlinforforge"
-loaderVersion="[2,)"
+loaderVersion="[3,)"
 # modLoader="javafml"
 # loaderVersion="[37,)"
 license="${Mod.LICENSE}"
@@ -18,7 +18,7 @@ ${Mod.DESCRIPTION}
 [[dependencies.${Mod.ID}]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.17.1,1.18)"
+versionRange="[1.18,1.19)"
 ordering="NONE"
 side="BOTH"
 
