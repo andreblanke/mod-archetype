@@ -23,8 +23,7 @@ abstract class Mod protected constructor() {
             AutoConfig.register(ModConfigData::class.java, ::JanksonConfigSerializer)
     }
 
-    internal abstract fun isClothConfigLoaded(): Boolean
+    abstract fun isClothConfigLoaded(): Boolean
 
-    fun getConfigScreen(parent: Screen): Screen =
-        AutoConfig.getConfigScreen(ModConfigData::class.java, parent).get()
+    abstract fun getConfigScreen(parent: Screen): Screen
 }

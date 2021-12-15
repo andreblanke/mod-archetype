@@ -6,19 +6,6 @@ plugins {
     id("fabric-loom") version "0.10-SNAPSHOT"
 }
 
-sourceSets {
-    main {
-        java.srcDir("../common-fabric/src/main/java")
-        resources.srcDir("../common-fabric/src/main/resources")
-    }
-}
-
-kotlin {
-    sourceSets["main"].apply {
-        kotlin.srcDir("../common-fabric/src/main/kotlin")
-    }
-}
-
 repositories {
     maven {
         name = "ParchmentMC"
@@ -80,15 +67,6 @@ dependencies {
     ) {
         exclude(group = "net.fabricmc.fabric-api")
     }
-}
 
-tasks {
-    processResources {
-        // Always forces the processResource task to run. TODO: Check if this is really necessary.
-        outputs.upToDateWhen { false }
-
-        filesMatching("fabric.mod.json") {
-            expand("Mod" to Mod)
-        }
-    }
+    compileOnly(project(":common"))
 }

@@ -19,19 +19,6 @@ apply(plugin = "eclipse")
 apply(plugin = "net.minecraftforge.gradle")
 apply(plugin = "org.spongepowered.mixin")
 
-sourceSets {
-    main {
-        java.srcDir("../common-forge/src/main/java")
-        resources.srcDir("../common-forge/src/main/resources")
-    }
-}
-
-kotlin {
-    sourceSets["main"].apply {
-        kotlin.srcDir("../common-forge/src/main/kotlin")
-    }
-}
-
 configure<UserDevExtension> {
     mappings("official", Mod.Dependencies.Minecraft.version)
 
@@ -87,18 +74,6 @@ dependencies {
 
     val fg = project.the<DependencyManagementExtension>()
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:${Mod.Dependencies.ClothConfigApi.version}"))
-}
 
-tasks {
-    processResources {
-        // Always forces the processResource task to run. TODO: Check if this is really necessary.
-        outputs.upToDateWhen { false }
-
-        filesMatching("META-INF/mods.toml") {
-            expand("Mod" to Mod)
-        }
-        filesMatching("pack.mcmeta") {
-            expand("Mod" to Mod)
-        }
-    }
+    compileOnly(project(":common"))
 }
