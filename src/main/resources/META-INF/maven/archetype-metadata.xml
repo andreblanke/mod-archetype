@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<archetype-descriptor
+    xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0
+                        https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+    name=""
+    partial="true">
+  <requiredProperties>
+    <requiredProperty key="modId"/>
+    <requiredProperty key="modName"/>
+    <requiredProperty key="modDescription"/>
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" packaged="true">
+      <directory>.idea/runConfigurations</directory>
+      <includes>
+        <include>*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
+      <directory>buildSrc</directory>
+      <excludes>
+        <exclude>.gradle</exclude>
+        <exclude>bin</exclude>
+        <exclude>build</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
+      <directory>common</directory>
+      <excludes>
+        <exclude>.gradle</exclude>
+        <exclude>bin</exclude>
+        <exclude>build</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
+      <directory>fabric</directory>
+      <excludes>
+        <exclude>.gradle</exclude>
+        <exclude>bin</exclude>
+        <exclude>build</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
+      <directory>forge</directory>
+      <excludes>
+        <exclude>.gradle</exclude>
+        <exclude>bin</exclude>
+        <exclude>build</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet packaged="true">
+      <directory>gradle/wrapper</directory>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
+      <directory/>
+      <includes>
+        <include>.editorconfig</include>
+        <include>.envrc</include>
+        <include>.gitattributes</include>
+        <include>.gitignore</include>
+        <include>LICENSE.txt</include>
+        <include>README.md</include>
+        <include>build.gradle.kts</include>
+        <include>gradle.properties</include>
+        <include>gradlew</include>
+        <include>gradlew.bat</include>
+        <include>settings.gradle.kts</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

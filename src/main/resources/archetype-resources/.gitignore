@@ -1,0 +1,23 @@
+.directory
+
+# Eclipse Buildship
+.classpath
+.project
+.settings
+bin
+
+# Ignore Gradle project-specific cache directory
+.gradle
+# Ignore Gradle build output directories
+build
+
+# IntelliJ IDEA
+.idea/*
+!.idea/runConfigurations/
+!.idea/runConfigurations/*
+
+# Minecraft Fabric/Forge working directory
+**/run/**
+!fabric/run/.gitkeep
+
+.fabric
