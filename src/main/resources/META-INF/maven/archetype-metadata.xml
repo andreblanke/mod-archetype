@@ -88,9 +88,21 @@
       </includes>
     </fileSet>
 
+    <!-- forge -->
+    <fileSet filtered="true" packaged="true">
+      <directory>forge/src/main/kotlin</directory>
+      <includes>
+        <include>__modName__Forge.kt</include>
+      </includes>
+    </fileSet>
     <fileSet filtered="true" packaged="false">
       <directory>forge</directory>
+      <includes>
+        <include>src/main/resources/**</include>
+        <include>build.gradle.kts</include>
+      </includes>
     </fileSet>
+
     <fileSet>
       <directory>gradle/wrapper</directory>
     </fileSet>

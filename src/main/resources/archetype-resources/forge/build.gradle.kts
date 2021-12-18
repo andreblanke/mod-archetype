@@ -2,7 +2,7 @@ import net.minecraftforge.gradle.common.util.RunConfig
 import net.minecraftforge.gradle.userdev.UserDevExtension
 import net.minecraftforge.gradle.userdev.DependencyManagementExtension
 
-import dev.andreblanke.mcmods.modid.build.Mod
+import ${package}.build.Mod
 
 plugins {
     kotlin("jvm")
