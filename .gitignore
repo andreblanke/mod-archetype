@@ -1,3 +1,7 @@
+.directory
+
+# Maven output directory
 target/
 
-.directory 
+# IntelliJ IDEA
+.idea/

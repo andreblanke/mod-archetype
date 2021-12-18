@@ -97,15 +97,7 @@ java.lang.NoClassDefFoundError: Could not initialize class org.jetbrains.kotlin.
 	at org.jetbrains.kotlin.com.intellij.core.CoreLanguageLevelProjectExtension.<init>(CoreLanguageLevelProjectExtension.java:26)
 	at org.jetbrains.kotlin.com.intellij.core.JavaCoreProjectEnvironment.<init>(JavaCoreProjectEnvironment.java:42)
 	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreProjectEnvironment.<init>(KotlinCoreProjectEnvironment.kt:26)
-	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$ProjectEnvironment.<init>(KotlinCoreEnvironment.kt:121)
-	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$Companion.createForProduction(KotlinCoreEnvironment.kt:425)
-	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.createCoreEnvironment(K2JVMCompiler.kt:226)
-	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:152)
-	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:52)
-	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:88)
-	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:44)
-	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:98)
-	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1575) <17 internal lines>
+    [...]
 ```
 
 You likely started the Gradle daemon with a currently unsupported JDK pointed to by your `JAVA_HOME` environment

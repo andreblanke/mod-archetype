@@ -8,9 +8,18 @@
     name="mod-template-archetype"
     partial="true">
   <requiredProperties>
+    <requiredProperty key="groupId">
+      <defaultValue>dev.andreblanke.mcmods</defaultValue>
+    </requiredProperty>
     <requiredProperty key="modId"/>
     <requiredProperty key="modName"/>
-    <requiredProperty key="modDescription"/>
+    <requiredProperty key="modDescription">
+      <defaultValue></defaultValue>
+    </requiredProperty>
+    <!-- Assume the most restrictive license by default. -->
+    <requiredProperty key="modLicense">
+      <defaultValue>All Rights Reserved</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true">

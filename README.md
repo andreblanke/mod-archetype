@@ -7,3 +7,7 @@ mvn archetype:generate                      \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
   -DarchetypeArtifactId=mod-template-archetype
 ``` 
+
+```shell
+mvn integration-test
+```
