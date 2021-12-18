@@ -51,7 +51,7 @@ if (!language.equalsIgnoreCase("java")) {
 
 println("Removing Velocity file extensions:")
 
-def removeVslFileExtensions(Path projectPath) {
+def removeVelocityFileExtensions(Path projectPath) {
     def velocityFileExtension = ".vsl"
 
     Files.walkFileTree(projectPath, new SimpleFileVisitor<Path>() {
@@ -73,4 +73,4 @@ def removeVslFileExtensions(Path projectPath) {
         }
     })
 }
-removeVslFileExtensions(projectPath)
+removeVelocityFileExtensions(projectPath)
