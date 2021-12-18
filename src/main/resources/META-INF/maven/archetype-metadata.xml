@@ -11,10 +11,14 @@
     <requiredProperty key="groupId">
       <defaultValue>dev.andreblanke.mcmods</defaultValue>
     </requiredProperty>
+    <requiredProperty key="artifactId"/>
+    <requiredProperty key="package">
+      <defaultValue>${groupId}.${artifactId}</defaultValue>
+    </requiredProperty>
     <requiredProperty key="modId"/>
     <requiredProperty key="modName"/>
     <requiredProperty key="modDescription">
-      <defaultValue></defaultValue>
+      <defaultValue/>
     </requiredProperty>
     <!-- Assume the most restrictive license by default. -->
     <requiredProperty key="modLicense">
@@ -22,25 +26,25 @@
     </requiredProperty>
   </requiredProperties>
   <fileSets>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="false">
       <directory>.idea/runConfigurations</directory>
     </fileSet>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="false">
       <directory>buildSrc</directory>
     </fileSet>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="false">
       <directory>common</directory>
     </fileSet>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="false">
       <directory>fabric</directory>
     </fileSet>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="false">
       <directory>forge</directory>
     </fileSet>
     <fileSet packaged="true">
       <directory>gradle/wrapper</directory>
     </fileSet>
-    <fileSet filtered="true" packaged="true">
+    <fileSet filtered="true" packaged="false">
       <directory/>
       <includes>
         <include>.editorconfig</include>

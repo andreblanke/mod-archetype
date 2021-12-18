@@ -1,13 +1,13 @@
 ```shell
 git clone https://github.com/andreblanke/mod-template
 
-mvn install
+mvnw install
 
-mvn archetype:generate                      \
+mvnw archetype:generate                      \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
   -DarchetypeArtifactId=mod-template-archetype
 ``` 
 
 ```shell
-mvn integration-test
+mvnw integration-test
 ```
