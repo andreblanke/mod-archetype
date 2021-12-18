@@ -27,6 +27,10 @@
     <requiredProperty key="modLicense">
       <defaultValue>All Rights Reserved</defaultValue>
     </requiredProperty>
+    <!-- Currently valid values: ["java", "kotlin"]. Mixins must still be written in Java. -->
+    <requiredProperty key="language">
+      <defaultValue>java</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="false">
