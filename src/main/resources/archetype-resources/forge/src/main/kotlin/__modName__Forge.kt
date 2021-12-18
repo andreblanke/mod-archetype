@@ -26,5 +26,5 @@ object ${modName}Forge : ${modName}() {
         ModList.get().isLoaded("cloth_config")
 
     override fun getConfigScreen(parent: Screen): Screen =
-        AutoConfig.getConfigScreen(ModConfigData::class.java, parent).get()
+        AutoConfig.getConfigScreen(${modName}ConfigData::class.java, parent).get()
 }

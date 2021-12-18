@@ -16,5 +16,5 @@ object ${modName}Fabric : ${modName}(), ModInitializer {
         FabricLoader.getInstance().isModLoaded("cloth-config2")
 
     override fun getConfigScreen(parent: Screen): Screen =
-        AutoConfig.getConfigScreen(ModConfigData::class.java, parent).get()
+        AutoConfig.getConfigScreen(${modName}ConfigData::class.java, parent).get()
 }

@@ -57,6 +57,8 @@
       <directory>common/src/main/java</directory>
       <includes>
         <include>mixin/.gitkeep</include>
+        <include>__modName__.java</include>
+        <include>__modName__ConfigData.java</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
@@ -76,6 +78,14 @@
 
     <!-- fabric -->
     <fileSet filtered="true" packaged="true">
+      <directory>fabric/src/main/java</directory>
+      <includes>
+        <include>asm/EarlyRiser.java</include>
+        <include>integration/ModMenuIntegration.java</include>
+        <include>__modName__Fabric.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
       <directory>fabric/src/main/kotlin</directory>
       <includes>
         <include>asm/EarlyRiser.kt</include>
@@ -92,6 +102,12 @@
     </fileSet>
 
     <!-- forge -->
+    <fileSet filtered="true" packaged="true">
+      <directory>forge/src/main/java</directory>
+      <includes>
+        <include>__modName__Forge.java</include>
+      </includes>
+    </fileSet>
     <fileSet filtered="true" packaged="true">
       <directory>forge/src/main/kotlin</directory>
       <includes>

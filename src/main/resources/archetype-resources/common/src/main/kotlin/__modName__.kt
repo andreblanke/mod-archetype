@@ -5,15 +5,10 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer
 
 import net.minecraft.client.gui.screens.Screen
 
-import org.apache.logging.log4j.Logger
-import org.apache.logging.log4j.LogManager
-
 abstract class ${modName} protected constructor() {
 
     companion object {
         const val ID = "${modId}"
-
-        val logger: Logger = LogManager.getLogger()
     }
 
     init {
@@ -23,7 +18,7 @@ abstract class ${modName} protected constructor() {
          */
         @Suppress("LeakingThis")
         if (isClothConfigLoaded())
-            AutoConfig.register(ModConfigData::class.java, ::JanksonConfigSerializer)
+            AutoConfig.register(${modName}ConfigData::class.java, ::JanksonConfigSerializer)
     }
 
     abstract fun isClothConfigLoaded(): Boolean
