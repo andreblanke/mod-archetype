@@ -1,4 +1,4 @@
-package dev.andreblanke.mcmods.modid.build
+package ${package}.build
 
 interface Versioned {
     val version: String

@@ -32,9 +32,23 @@
     <fileSet filtered="true" packaged="false">
       <directory>.idea/runConfigurations</directory>
     </fileSet>
+
+    <!-- buildSrc -->
+    <fileSet filtered="true" packaged="true">
+      <directory>buildSrc/src/main/kotlin</directory>
+      <includes>
+        <include>build/Mod.kt</include>
+      </includes>
+    </fileSet>
     <fileSet filtered="true" packaged="false">
       <directory>buildSrc</directory>
+      <includes>
+        <include>.gitignore</include>
+        <include>build.gradle.kts</include>
+        <include>gradle.properties</include>
+      </includes>
     </fileSet>
+
     <fileSet filtered="true" packaged="false">
       <directory>common</directory>
     </fileSet>
