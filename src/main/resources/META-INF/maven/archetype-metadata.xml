@@ -16,7 +16,10 @@
       <defaultValue>${groupId}.${artifactId}</defaultValue>
     </requiredProperty>
     <requiredProperty key="modId"/>
-    <requiredProperty key="modName"/>
+    <requiredProperty key="modName">
+      <!-- Only applied to inputs given via an interactive archetype:generate but still better than nothing. -->
+      <validationRegex></validationRegex>
+    </requiredProperty>
     <requiredProperty key="modDescription">
       <defaultValue/>
     </requiredProperty>

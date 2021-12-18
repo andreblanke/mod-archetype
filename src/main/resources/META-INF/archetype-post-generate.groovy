@@ -1,3 +1,4 @@
+//file:noinspection GrPackage
 import java.nio.file.FileVisitResult
 import java.nio.file.Files
 import java.nio.file.attribute.BasicFileAttributes
@@ -5,12 +6,14 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.SimpleFileVisitor
 
+import javax.lang.model.SourceVersion
+
 def projectPath = Paths.get(request.outputDirectory, request.artifactId)
 
 // Delete dummy pom.xml.
 Files.delete(projectPath.resolve("pom.xml"))
 
-def language = request.getProperties().get("language")
+def language = request.getProperties()["language"]
 println("Using language '${language}'. Removing source files belonging to other languages:")
 
 def removeLanguage(Path projectPath, String language, List<String> excludes) {
@@ -51,7 +54,7 @@ if (!language.equalsIgnoreCase("java")) {
 
 println("Removing Velocity file extensions:")
 
-def removeVslFileExtensions(Path projectPath) {
+def removeVelocityFileExtensions(Path projectPath) {
     def velocityFileExtension = ".vsl"
 
     Files.walkFileTree(projectPath, new SimpleFileVisitor<Path>() {
@@ -73,4 +76,20 @@ def removeVslFileExtensions(Path projectPath) {
         }
     })
 }
-removeVslFileExtensions(projectPath)
+removeVelocityFileExtensions(projectPath)
+
+def modName = request.getProperties()["modName"]
+
+boolean fixNeeded = false
+String fixedModName = modName
+if (SourceVersion.isKeyword(modName)) {
+    println("Detected that the chosen modName '${modName}' is a Java keyword. Renaming to '${modName}_'.")
+
+    fixNeeded = true
+    fixedModName = "${modName}_"
+
+    if (!language.equalsIgnoreCase("java"))
+        println("Please note that no checks are made for keywords of languages other than Java at the moment.")
+} else if (!SourceVersion.isIdentifier()) {
+
+}
