@@ -2,22 +2,26 @@ import org.gradle.jvm.tasks.Jar
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-import dev.andreblanke.mcmods.modid.build.Mod
+import ${package}.build.Mod
 
+#if ($language == "kotlin")
 plugins {
     kotlin("jvm") version "1.6.0-RC2"
 }
 
+#end
 subprojects {
     afterEvaluate {
         java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
     }
 
     tasks {
+#if ($language == "kotlin")
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = "1.8"
         }
 
+#end
         withType<Jar> {
             archiveBaseName.set(rootProject.name)
             archiveAppendix.set(this@subprojects.name)
@@ -44,6 +48,7 @@ subprojects.filter { it.name != "common" }.forEach {
 
     it.tasks {
         withType<JavaCompile> {
+#if ($language == "kotlin")
             /*
              * // source(project(":common").sourceSets["main"].java)
              *
@@ -51,12 +56,17 @@ subprojects.filter { it.name != "common" }.forEach {
              * so prefer to keep the symmetry here until a better solution is found.
              */
             source("../common/src/main/java")
+#else
+            source(project(":common").sourceSets["main"].java)
+#end
         }
+#if ($language == "kotlin")
 
         withType<KotlinCompile> {
             // source(project(":common").sourceSets["main"].kotlin)
             source("../common/src/main/kotlin")
         }
+#end
     }
 }
 

@@ -1,7 +1,12 @@
-modLoader="kotlinforforge"
-loaderVersion="[3,)"
-# modLoader="javafml"
-# loaderVersion="[37,)"
+#if ($language == "java")
+  #set ($modLoader = "javafml")
+  #set ($loaderVersion = "[39,)")
+#elseif ($language == "kotlin")
+  #set ($modLoader = "kotlinforforge")
+  #set ($loaderVersion = "[3,)")
+#end
+modLoader="${modLoader}"
+loaderVersion="${loaderVersion}"
 license="${Mod.LICENSE}"
 issueTrackerURL="${Mod.Contact.ISSUES}"
 
@@ -25,7 +30,7 @@ side="BOTH"
 [[dependencies.${Mod.ID}]]
 modId="forge"
 mandatory=true
-versionRange="[36,)"
+versionRange="[39,)"
 ordering="NONE"
 side="BOTH"
 

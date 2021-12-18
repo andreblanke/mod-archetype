@@ -48,28 +48,6 @@ mod-template
 Mods based upon this template make use of the fact that Mojang released official obfuscation mappings which, if we are
 careful, allows us to write mod loader-agnostic code that targets both Fabric and Forge in the `common` module.
 
-## About the template
-
-### Tweaking
-
-#### Removal of Kotlin
-
-While the template is meant to be used primarily with Kotlin it can be changed to support only  Java relatively easy if
-more minimal build scripts are preferred. The following steps would need to be taken:
-
-1. Convert the Kotlin stub classes to Java and move them into the `java` source root
-2. Edit `build.gradle.kts` files
-    - Remove Kotlin Gradle plugin application at the top of each file
-    - Root build script:
-        - Remove `KotlinCompile` task configuration inside the `subprojects` block
-    - Submodule build scripts:
-        - Remove additional Kotlin source sets
-3. Fabric-specific:
-    - Remove `fabric-language-kotlin` dependency from `build.gradle.kts` and `fabric.mod.json`
-4. Forge-specific:
-    - Remove KotlinForForge dependency along with its repository from `build.gradle.kts`
-    - Tweak `mods.toml` to restore original `javafml` `modLoader` and `loaderVersion` settings
-
 ## Troubleshooting
 
 ### IntelliJ IDEA shows problems regarding `fabric.mod.json` or `mods.toml`

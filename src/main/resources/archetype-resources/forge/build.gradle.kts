@@ -4,10 +4,12 @@ import net.minecraftforge.gradle.userdev.DependencyManagementExtension
 
 import ${package}.build.Mod
 
+#if ($language == "kotlin")
 plugins {
     kotlin("jvm")
 }
 
+#end
 buildscript {
     dependencies {
         classpath(group = "net.minecraftforge.gradle", name = "ForgeGradle", version = "5.1.+")
@@ -51,10 +53,12 @@ configure<UserDevExtension> {
 }
 
 repositories {
+#if ($language == "kotlin")
     maven {
         name = "kotlinforforge"
         url  = uri("https://thedarkcolour.github.io/KotlinForForge/")
     }
+#end
     maven {
         name = "shedaniel"
         url  = uri("https://maven.shedaniel.me/")
@@ -66,12 +70,13 @@ dependencies {
         group   = "net.minecraftforge",
         name    = "forge",
         version = Mod.Dependencies.Forge.version)
-
+#if ($language == "kotlin")
     implementation(
         group   = "thedarkcolour",
         name    = "kotlinforforge",
         version = Mod.Dependencies.Forge.Language.Kotlin.version)
 
+#end
     val fg = project.the<DependencyManagementExtension>()
     api(fg.deobf("me.shedaniel.cloth:cloth-config-forge:${Mod.Dependencies.ClothConfigApi.version}"))
 

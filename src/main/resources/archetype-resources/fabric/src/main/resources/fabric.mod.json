@@ -21,10 +21,14 @@
       "${package}.asm.EarlyRiser"
     ],
     "main": [
+#if ($language == "java")
+      "${package}.${modName}Fabric"
+#elseif ($language == "kotlin")
       {
         "adapter": "kotlin",
         "value": "${package}.${modName}Fabric"
       }
+#end
     ],
     "modmenu": [
       "${package}.integration.ModMenuIntegration"
@@ -36,7 +40,9 @@
 
   "depends": {
     "fabricloader": "*",
+#if ($language == "kotlin")
     "fabric-language-kotlin": "*",
+#end
     "fabric": "*",
     "minecraft": ">=1.18",
     "java": ">=17",

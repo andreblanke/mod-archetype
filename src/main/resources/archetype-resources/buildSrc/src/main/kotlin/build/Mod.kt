@@ -50,12 +50,13 @@ object Mod : Versioned {
             object Loader : Versioned {
                 override val version = "0.12.8"
             }
-
+#if ($language == "kotlin")
             object Language {
                 object Kotlin : Versioned {
                     override val version = "1.7.0+kotlin.1.6.0"
                 }
             }
+#end
         }
 
         object Forge : Versioned {
@@ -63,12 +64,14 @@ object Mod : Versioned {
 
             override val version: String
                 get() = "${Minecraft.version}-$VERSION"
+#if ($language == "kotlin")
 
             object Language {
                 object Kotlin : Versioned {
                     override val version = "3.0.0"
                 }
             }
+#end
         }
 
         object Minecraft : Versioned {

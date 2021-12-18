@@ -1,8 +1,10 @@
-import dev.andreblanke.mcmods.modid.build.Mod
+import ${package}.build.Mod
 
 plugins {
+#if ($language == "kotlin")
     kotlin("jvm")
 
+#end
     id("fabric-loom") version "0.10-SNAPSHOT"
 }
 
@@ -41,10 +43,12 @@ dependencies {
         group   = "net.fabricmc",
         name    = "fabric-loader",
         version = Mod.Dependencies.Fabric.Loader.version)
+#if ($language == "kotlin")
     modImplementation(
         group   = "net.fabricmc",
         name    = "fabric-language-kotlin",
         version = Mod.Dependencies.Fabric.Language.Kotlin.version)
+#end
     // Optional, but required for localization using en_us.json and other lang files.
     modImplementation(
         group   = "net.fabricmc.fabric-api",
