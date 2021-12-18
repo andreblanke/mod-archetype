@@ -1,4 +1,4 @@
-import dev.andreblanke.mcmods.modid.build.Mod
+import ${package}.build.Mod
 
 plugins {
     kotlin("jvm")

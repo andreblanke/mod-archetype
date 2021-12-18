@@ -1,4 +1,4 @@
-package dev.andreblanke.mcmods.modid
+package ${package}
 
 import me.shedaniel.autoconfig.AutoConfig
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer

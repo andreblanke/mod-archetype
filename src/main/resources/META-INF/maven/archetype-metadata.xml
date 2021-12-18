@@ -49,9 +49,28 @@
       </includes>
     </fileSet>
 
-    <fileSet filtered="true" packaged="false">
-      <directory>common</directory>
+    <!-- common -->
+    <fileSet filtered="true" packaged="true">
+      <directory>common/src/main/java</directory>
+      <includes>
+        <include>mixin/.gitkeep</include>
+      </includes>
     </fileSet>
+    <fileSet filtered="true" packaged="true">
+      <directory>common/src/main/kotlin</directory>
+      <includes>
+        <include>__modName__.kt</include>
+        <include>__modName__ConfigData.kt</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>common</directory>
+      <includes>
+        <include>src/main/resources/**</include>
+        <include>build.gradle.kts</include>
+      </includes>
+    </fileSet>
+
     <fileSet filtered="true" packaged="false">
       <directory>fabric</directory>
     </fileSet>
