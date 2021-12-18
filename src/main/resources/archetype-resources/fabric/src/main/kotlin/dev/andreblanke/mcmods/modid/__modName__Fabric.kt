@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader
 
 import net.minecraft.client.gui.screens.Screen
 
-object ModFabric : Mod(), ModInitializer {
+object ${modName}Fabric : ${modName}(), ModInitializer {
 
     override fun onInitialize() {
     }

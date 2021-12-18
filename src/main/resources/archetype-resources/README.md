@@ -1,4 +1,4 @@
-# Mod Template
+# ${modName}
 
 This repository contains a template for a Minecraft mod targeting both the Fabric and Forge mod loaders, relying only
 on [ForgeGradle](https://github.com/MinecraftForge/ForgeGradle) and

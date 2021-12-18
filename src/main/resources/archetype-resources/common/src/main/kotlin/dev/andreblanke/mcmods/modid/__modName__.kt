@@ -8,16 +8,19 @@ import net.minecraft.client.gui.screens.Screen
 import org.apache.logging.log4j.Logger
 import org.apache.logging.log4j.LogManager
 
-abstract class Mod protected constructor() {
+abstract class ${modName} protected constructor() {
 
     companion object {
-        const val ID = "modid"
+        const val ID = "${modId}"
 
         val logger: Logger = LogManager.getLogger()
     }
 
     init {
-        // isClothConfigLoaded should be safe to call even if the Mod subclass is not initialized yet.
+        /*
+         * isClothConfigLoaded should be safe to call even if the ${modName} subclass is not initialized yet because it
+         * should not rely on any state.
+         */
         @Suppress("LeakingThis")
         if (isClothConfigLoaded())
             AutoConfig.register(ModConfigData::class.java, ::JanksonConfigSerializer)

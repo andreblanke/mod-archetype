@@ -1,7 +1,5 @@
 package dev.andreblanke.mcmods.modid.build
 
-import java.util.*
-
 interface Versioned {
     val version: String
 }
@@ -10,24 +8,21 @@ interface Versioned {
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 object Mod : Versioned {
 
-    const val ID   = "modid"
-    const val NAME = "Mod Name"
+    const val ID   = "${modId}"
+    const val NAME = "${modName}"
 
-    const val AUTHOR  = "andreblanke"
-    const val LICENSE = "MIT"
+    const val AUTHOR  = "${modAuthor}"
+    const val LICENSE = "${modLicense}"
 
-    const val DESCRIPTION = "Description"
-
-    val properties: Map<String, Any?>
-        get() = TreeMap()
+    const val DESCRIPTION = "${modDescription}"
 
     const val VERSION = "1.0.0"
     override val version
         get() = VERSION
 
     val Contact = object {
-        val HOMEPAGE = "https://github.com/andreblanke/mod-template"
-        val ISSUES   = "https://github.com/andreblanke/mod-template/issues"
+        val HOMEPAGE = "https://github.com/${modAuthor}/${artifactId}"
+        val ISSUES   = "https://github.com/${modAuthor}/${artifactId}/issues"
     }
 
     object Dependencies {

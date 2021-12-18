@@ -1,4 +1,4 @@
-rootProject.name = "mod-template"
+rootProject.name = "${artifactId}"
 
 pluginManagement {
     repositories {

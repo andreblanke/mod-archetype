@@ -20,6 +20,9 @@
     <requiredProperty key="modDescription">
       <defaultValue/>
     </requiredProperty>
+    <requiredProperty key="modAuthor">
+      <defaultValue>andreblanke</defaultValue>
+    </requiredProperty>
     <!-- Assume the most restrictive license by default. -->
     <requiredProperty key="modLicense">
       <defaultValue>All Rights Reserved</defaultValue>
@@ -41,7 +44,7 @@
     <fileSet filtered="true" packaged="false">
       <directory>forge</directory>
     </fileSet>
-    <fileSet packaged="true">
+    <fileSet>
       <directory>gradle/wrapper</directory>
     </fileSet>
     <fileSet filtered="true" packaged="false">
@@ -51,7 +54,6 @@
         <include>.envrc</include>
         <include>.gitattributes</include>
         <include>.gitignore</include>
-        <include>LICENSE.txt</include>
         <include>README.md</include>
         <include>build.gradle.kts</include>
         <include>gradle.properties</include>

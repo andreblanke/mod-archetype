@@ -9,8 +9,8 @@ import net.minecraftforge.fml.ModList
 import net.minecraftforge.fml.ModLoadingContext
 import net.minecraftforge.fml.common.Mod
 
-@Mod(dev.andreblanke.mcmods.modid.Mod.ID)
-object ModForge : dev.andreblanke.mcmods.modid.Mod() {
+@Mod(${modName}.ID)
+object ${modName}Forge : ${modName}() {
 
     init {
         if (isClothConfigLoaded()) {

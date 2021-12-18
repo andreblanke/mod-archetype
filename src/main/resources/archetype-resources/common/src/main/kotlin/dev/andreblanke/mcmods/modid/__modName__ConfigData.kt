@@ -4,7 +4,7 @@ import me.shedaniel.autoconfig.ConfigData
 import me.shedaniel.autoconfig.annotation.Config
 
 @Config(name = Mod.ID)
-class ModConfigData : ConfigData {
+class ${modName}ConfigData : ConfigData {
 
     private var enabled: Boolean = true
 }
