@@ -16,5 +16,5 @@
   <version>${version}</version>
   <packaging>jar</packaging>
 
-  <name>${artifactId}</name>
+  <name>${modName}</name>
 </project>

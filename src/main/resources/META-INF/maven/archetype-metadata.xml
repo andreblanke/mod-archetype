@@ -30,6 +30,7 @@
     <!-- Currently valid values: ["java", "kotlin"]. Mixins must still be written in Java. -->
     <requiredProperty key="language">
       <defaultValue>java</defaultValue>
+      <validationRegex>^(java|kotlin)$</validationRegex>
     </requiredProperty>
   </requiredProperties>
   <fileSets>

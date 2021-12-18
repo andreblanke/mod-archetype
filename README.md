@@ -47,8 +47,12 @@ mvnw install
 # Interactively generate a project based upon the archetype.
 mvnw archetype:generate                     \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
-  -DarchetypeArtifactId=mod-template-archetype
+  -DarchetypeArtifactId=mod-archetype
 ```
+
+The `archetype:generate` goal will prompt you for some information, most of which should be self-explanatory. Depending
+on the chosen `language` property (valid values are `java` and `kotlin` currently), a mod project with the specified
+language will be generated.
 
 ## Known caveats
 
