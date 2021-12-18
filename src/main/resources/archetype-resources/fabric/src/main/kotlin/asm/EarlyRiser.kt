@@ -1,4 +1,4 @@
-package dev.andreblanke.mcmods.modid.asm
+package ${package}.asm
 
 class EarlyRiser : Runnable {
 

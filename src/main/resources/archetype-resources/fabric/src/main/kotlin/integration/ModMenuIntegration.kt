@@ -1,9 +1,9 @@
-package dev.andreblanke.mcmods.modid.integration
+package ${package}.integration
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory
 import com.terraformersmc.modmenu.api.ModMenuApi
 
-import dev.andreblanke.mcmods.modid.${modName}Fabric
+import ${package}.${modName}Fabric
 
 class ModMenuIntegration : ModMenuApi {
 

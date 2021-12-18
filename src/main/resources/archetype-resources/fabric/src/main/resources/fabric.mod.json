@@ -18,20 +18,20 @@
   "environment": "*",
   "entrypoints": {
     "mm:early_risers": [
-      "dev.andreblanke.mcmods.modid.asm.EarlyRiser"
+      "${package}.asm.EarlyRiser"
     ],
     "main": [
       {
         "adapter": "kotlin",
-        "value": "dev.andreblanke.mcmods.modid.ModFabric"
+        "value": "${package}.${modName}Fabric"
       }
     ],
     "modmenu": [
-      "dev.andreblanke.mcmods.modid.integration.ModMenuIntegration"
+      "${package}.integration.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "${modId}.mixins.json"
   ],
 
   "depends": {

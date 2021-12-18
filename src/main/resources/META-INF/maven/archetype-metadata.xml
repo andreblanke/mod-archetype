@@ -63,7 +63,7 @@
         <include>__modName__ConfigData.kt</include>
       </includes>
     </fileSet>
-    <fileSet>
+    <fileSet filtered="true" packaged="false">
       <directory>common</directory>
       <includes>
         <include>src/main/resources/**</include>
@@ -71,9 +71,23 @@
       </includes>
     </fileSet>
 
+    <!-- fabric -->
+    <fileSet filtered="true" packaged="true">
+      <directory>fabric/src/main/kotlin</directory>
+      <includes>
+        <include>asm/EarlyRiser.kt</include>
+        <include>integration/ModMenuIntegration.kt</include>
+        <include>__modName__Fabric.kt</include>
+      </includes>
+    </fileSet>
     <fileSet filtered="true" packaged="false">
       <directory>fabric</directory>
+      <includes>
+        <include>src/main/resources/**</include>
+        <include>build.gradle.kts</include>
+      </includes>
     </fileSet>
+
     <fileSet filtered="true" packaged="false">
       <directory>forge</directory>
     </fileSet>
