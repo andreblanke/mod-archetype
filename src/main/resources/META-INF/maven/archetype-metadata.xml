@@ -31,6 +31,9 @@
   <fileSets>
     <fileSet filtered="true" packaged="false">
       <directory>.idea/runConfigurations</directory>
+      <includes>
+        <include>*.xml</include>
+      </includes>
     </fileSet>
 
     <!-- buildSrc -->
@@ -105,7 +108,11 @@
 
     <fileSet>
       <directory>gradle/wrapper</directory>
+      <includes>
+        <include>*</include>
+      </includes>
     </fileSet>
+
     <fileSet filtered="true" packaged="false">
       <directory/>
       <includes>
