@@ -1,3 +1,4 @@
+#set($d = '$')
 #if ($language == "java")
   #set ($modLoader = "javafml")
   #set ($loaderVersion = "[39,)")
@@ -7,34 +8,34 @@
 #end
 modLoader="${modLoader}"
 loaderVersion="${loaderVersion}"
-license="${Mod.LICENSE}"
-issueTrackerURL="${Mod.Contact.ISSUES}"
+license="${d}{Mod.LICENSE}"
+issueTrackerURL="${d}{Mod.Contact.ISSUES}"
 
 [[mods]]
-modId="${Mod.ID}"
-version="${Mod.VERSION}"
-displayName="${Mod.NAME}"
-logoFile="${Mod.ID}.png"
-authors="${Mod.AUTHOR}"
+modId="${d}{Mod.ID}"
+version="${d}{Mod.VERSION}"
+displayName="${d}{Mod.NAME}"
+logoFile="${d}{Mod.ID}.png"
+authors="${d}{Mod.AUTHOR}"
 description='''
-${Mod.DESCRIPTION}
+${d}{Mod.DESCRIPTION}
 '''
 
-[[dependencies.${Mod.ID}]]
+[[dependencies.${d}{Mod.ID}]]
 modId="minecraft"
 mandatory=true
 versionRange="[1.18,1.19)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${Mod.ID}]]
+[[dependencies.${d}{Mod.ID}]]
 modId="forge"
 mandatory=true
 versionRange="[39,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${Mod.ID}]]
+[[dependencies.${d}{Mod.ID}]]
 modId="cloth_config"
 mandatory=false
 versionRange="[5.0.38,)"

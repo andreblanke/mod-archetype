@@ -48,3 +48,29 @@ if (!language.equalsIgnoreCase("java")) {
 } else if (!language.equalsIgnoreCase("kotlin")) {
     removeLanguage(projectPath, "kotlin", excludes)
 }
+
+println("Removing Velocity file extensions:")
+
+def removeVslFileExtensions(Path projectPath) {
+    def velocityFileExtension = ".vsl"
+
+    Files.walkFileTree(projectPath, new SimpleFileVisitor<Path>() {
+        FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
+            def fileName = file.getFileName().toString()
+            if (file.getFileName().toString().endsWith(velocityFileExtension)) {
+                def actualFileName = fileName.substring(0, fileName.length() - velocityFileExtension.length())
+
+                Files.move(file, file.resolveSibling(actualFileName))
+                println("Renamed '${file}' to '${actualFileName}'.")
+            }
+            return FileVisitResult.CONTINUE
+        }
+
+        FileVisitResult postVisitDirectory(Path directory, IOException exception) throws IOException {
+            if (exception != null)
+                throw exception
+            return FileVisitResult.CONTINUE
+        }
+    })
+}
+removeVslFileExtensions(projectPath)

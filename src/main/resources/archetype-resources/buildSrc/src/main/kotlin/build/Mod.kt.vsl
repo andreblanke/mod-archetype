@@ -1,3 +1,4 @@
+#set($d = '$')
 package ${package}.build
 
 interface Versioned {
@@ -21,8 +22,8 @@ object Mod : Versioned {
         get() = VERSION
 
     val Contact = object {
-        val HOMEPAGE = "https://github.com/${modAuthor}/${artifactId}"
-        val ISSUES   = "https://github.com/${modAuthor}/${artifactId}/issues"
+        val HOMEPAGE = "https://github.com/${d}{AUTHOR}/${d}{ID}"
+        val ISSUES   = "https://github.com/${d}{AUTHOR}/${d}{ID}/issues"
     }
 
     object Dependencies {
@@ -40,7 +41,7 @@ object Mod : Versioned {
                 private const val VERSION = "0.44.0"
 
                 override val version: String
-                    get() = "${VERSION}+${Minecraft.version}"
+                    get() = "${d}{VERSION}+${d}{Minecraft.version}"
             }
 
             object Asm : Versioned {
@@ -63,7 +64,7 @@ object Mod : Versioned {
             private const val VERSION = "38.0.14"
 
             override val version: String
-                get() = "${Minecraft.version}-$VERSION"
+                get() = "${d}{Minecraft.version}-${d}VERSION"
 #if ($language == "kotlin")
 
             object Language {

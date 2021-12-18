@@ -44,7 +44,7 @@
     <fileSet filtered="true" packaged="true">
       <directory>buildSrc/src/main/kotlin</directory>
       <includes>
-        <include>build/Mod.kt</include>
+        <include>build/Mod.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">
@@ -52,7 +52,7 @@
       <includes>
         <include>.gitignore</include>
         <include>build.gradle.kts</include>
-        <include>gradle.properties</include>
+        <include>gradle.properties.vsl</include>
       </includes>
     </fileSet>
 
@@ -61,22 +61,22 @@
       <directory>common/src/main/java</directory>
       <includes>
         <include>mixin/.gitkeep</include>
-        <include>__modName__.java</include>
-        <include>__modName__ConfigData.java</include>
+        <include>__modName__.java.vsl</include>
+        <include>__modName__ConfigData.java.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
       <directory>common/src/main/kotlin</directory>
       <includes>
-        <include>__modName__.kt</include>
-        <include>__modName__ConfigData.kt</include>
+        <include>__modName__.kt.vsl</include>
+        <include>__modName__ConfigData.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">
       <directory>common</directory>
       <includes>
         <include>src/main/resources/**</include>
-        <include>build.gradle.kts</include>
+        <include>build.gradle.kts.vsl</include>
       </includes>
     </fileSet>
 
@@ -84,24 +84,24 @@
     <fileSet filtered="true" packaged="true">
       <directory>fabric/src/main/java</directory>
       <includes>
-        <include>asm/EarlyRiser.java</include>
-        <include>integration/ModMenuIntegration.java</include>
-        <include>__modName__Fabric.java</include>
+        <include>asm/EarlyRiser.java.vsl</include>
+        <include>integration/ModMenuIntegration.java.vsl</include>
+        <include>__modName__Fabric.java.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
       <directory>fabric/src/main/kotlin</directory>
       <includes>
-        <include>asm/EarlyRiser.kt</include>
-        <include>integration/ModMenuIntegration.kt</include>
-        <include>__modName__Fabric.kt</include>
+        <include>asm/EarlyRiser.kt.vsl</include>
+        <include>integration/ModMenuIntegration.kt.vsl</include>
+        <include>__modName__Fabric.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">
       <directory>fabric</directory>
       <includes>
         <include>src/main/resources/**</include>
-        <include>build.gradle.kts</include>
+        <include>build.gradle.kts.vsl</include>
       </includes>
     </fileSet>
 
@@ -109,24 +109,24 @@
     <fileSet filtered="true" packaged="true">
       <directory>forge/src/main/java</directory>
       <includes>
-        <include>__modName__Forge.java</include>
+        <include>__modName__Forge.java.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
       <directory>forge/src/main/kotlin</directory>
       <includes>
-        <include>__modName__Forge.kt</include>
+        <include>__modName__Forge.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">
       <directory>forge</directory>
       <includes>
         <include>src/main/resources/**</include>
-        <include>build.gradle.kts</include>
+        <include>build.gradle.kts.vsl</include>
       </includes>
     </fileSet>
 
-    <fileSet>
+    <fileSet filtered="false" packaged="false">
       <directory>gradle/wrapper</directory>
       <includes>
         <include>*</include>
@@ -140,12 +140,12 @@
         <include>.envrc</include>
         <include>.gitattributes</include>
         <include>.gitignore</include>
-        <include>README.md</include>
-        <include>build.gradle.kts</include>
-        <include>gradle.properties</include>
+        <include>README.md.vsl</include>
+        <include>build.gradle.kts.vsl</include>
+        <include>gradle.properties.vsl</include>
         <include>gradlew</include>
         <include>gradlew.bat</include>
-        <include>settings.gradle.kts</include>
+        <include>settings.gradle.kts.vsl</include>
       </includes>
     </fileSet>
   </fileSets>

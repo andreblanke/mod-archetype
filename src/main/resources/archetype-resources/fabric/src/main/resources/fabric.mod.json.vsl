@@ -1,19 +1,20 @@
+#set($d = '$')
 {
   "schemaVersion": 1,
-  "id": "${Mod.ID}",
-  "version": "${Mod.VERSION}",
+  "id": "${d}{Mod.ID}",
+  "version": "${d}{Mod.VERSION}",
 
-  "name": "${Mod.NAME}",
-  "description": "${Mod.DESCRIPTION}",
+  "name": "${d}{Mod.NAME}",
+  "description": "${d}{Mod.DESCRIPTION}",
   "contact": {
-    "homepage": "${Mod.Contact.HOMEPAGE}",
-    "issues": "${Mod.Contact.ISSUES}"
+    "homepage": "${d}{Mod.Contact.HOMEPAGE}",
+    "issues": "${d}{Mod.Contact.ISSUES}"
   },
   "authors": [
-    "${Mod.AUTHOR}"
+    "${d}{Mod.AUTHOR}"
   ],
 
-  "license": "${Mod.LICENSE}",
+  "license": "${d}{Mod.LICENSE}",
 
   "environment": "*",
   "entrypoints": {
@@ -35,7 +36,7 @@
     ]
   },
   "mixins": [
-    "${modId}.mixins.json"
+    "${d}{Mod.ID}.mixins.json"
   ],
 
   "depends": {
