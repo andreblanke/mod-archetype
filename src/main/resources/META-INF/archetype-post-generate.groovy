@@ -74,3 +74,11 @@ def removeVelocityFileExtensions(Path projectPath) {
     })
 }
 removeVelocityFileExtensions(projectPath)
+
+try {
+    String[] cmd = ["git", "init", projectPath.toString()]
+    Runtime.getRuntime().exec(cmd)
+    println("Initialized git repository in ${projectPath}.")
+} catch (Exception exception) {
+    println("Failed to initialize git repository: ${exception.getMessage()}")
+}
