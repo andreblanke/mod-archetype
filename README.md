@@ -39,13 +39,16 @@ The repository is no longer marked as template repository because it is not suff
 
 ```shell
 # Clone the archetype.
-git clone https://github.com/andreblanke/mod-template
+git clone https://github.com/andreblanke/mod-archetype
 
-# Install it to the local Maven repository using the included Maven wrapper mvnw.
-mvnw install
+# Navigate into the downloaded repository.
+cd mod-archetype
+
+# Install it to the local Maven repository using the included Maven wrapper mvnw to be able to use the archetype.
+./mvnw install
 
 # Interactively generate a project based upon the archetype.
-mvnw archetype:generate                     \
+./mvnw archetype:generate                   \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
   -DarchetypeArtifactId=mod-archetype
 ```
