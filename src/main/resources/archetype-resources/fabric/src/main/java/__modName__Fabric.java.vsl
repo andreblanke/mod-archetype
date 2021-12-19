@@ -20,7 +20,7 @@ public final class ${modName}Fabric extends ${modName} implements ModInitializer
 
     @Override
     public Screen getConfigScreen(final Screen parent) {
-        return AutoConfig.getConfigScreen(${modName}ConfigData.java, parent).get();
+        return AutoConfig.getConfigScreen(${modName}ConfigData.class, parent).get();
     }
 }
 

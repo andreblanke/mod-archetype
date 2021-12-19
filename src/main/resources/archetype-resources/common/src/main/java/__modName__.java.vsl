@@ -7,14 +7,22 @@ import net.minecraft.client.gui.screens.Screen;
 
 public abstract class ${modName} {
 
+    private static ${modName} instance;
+
     public static final String ID = "${modId}";
 
     protected ${modName}() {
+        instance = this;
+
         if (isClothConfigLoaded())
             AutoConfig.register(${modName}ConfigData.class, JanksonConfigSerializer::new);
     }
 
+    public static ${modName} getInstance() {
+        return instance;
+    }
+
     public abstract boolean isClothConfigLoaded();
 
-    public abstract Screen getConfigScreen();
+    public abstract Screen getConfigScreen(Screen parent);
 }
