@@ -44,10 +44,12 @@ git clone https://github.com/andreblanke/mod-archetype
 # Navigate into the downloaded repository.
 cd mod-archetype
 
-# Install it to the local Maven repository using the included Maven wrapper mvnw to be able to use the archetype.
+# Install it to the local Maven repository using the included Maven wrapper mvnw to be able to use
+# the archetype.
 ./mvnw install
 
-# Interactively generate a project based upon the archetype.
+# Interactively generate a project based upon the archetype. The generated project will be placed
+# in the "out" directory.
 ./mvnw archetype:generate                   \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
   -DarchetypeArtifactId=mod-archetype       \
