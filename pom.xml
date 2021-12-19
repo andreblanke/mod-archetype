@@ -20,7 +20,7 @@
           <exclude>**/.gradle/**</exclude>
 
           <!--
-            Exclude the top-level build folder as well as the build folders of the individual subprojects. We cnanot
+            Exclude the top-level build folder as well as the build folders of the individual subprojects. We cannot
             use "**/build/**" like we do as above because "build" is used as part of the package name of buildSrc at
             the moment.
           -->
