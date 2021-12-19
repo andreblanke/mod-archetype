@@ -11,7 +11,7 @@
     <requiredProperty key="groupId"/>
     <requiredProperty key="artifactId"/>
     <requiredProperty key="package">
-      <defaultValue>${groupId}.${artifactId}</defaultValue>
+      <defaultValue>${groupId}.${modId}</defaultValue>
     </requiredProperty>
     <requiredProperty key="modId"/>
     <requiredProperty key="modName"/>
