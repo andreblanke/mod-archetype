@@ -13,7 +13,7 @@
     partial="true">
   <requiredProperties>
     <requiredProperty key="groupId">
-      <validationRegex>^[a-z._]$</validationRegex>
+      <validationRegex>^[a-z._]+$</validationRegex>
     </requiredProperty>
     <requiredProperty key="artifactId">
       <validationRegex>^[a-z-_]+$</validationRegex>
