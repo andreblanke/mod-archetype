@@ -15,6 +15,10 @@ The created project is already configured to support [Mixins](https://github.com
 Projects generated from this archetype make use of the fact that Mojang released official obfuscation mappings which
 allows us to write mod loader-agnostic code that targets both Fabric and Forge in the `common` module.
 
+> Note: There are currently still some issues with the generated project which should be resolved in the future.
+>       The common module is currently not fully integrated into the build and the run configurations still need
+>       manual tweaking.
+
 ## Remarks
 
 The repository previously contained an actual template instead of a Maven archetype capable of generating such a
