@@ -6,12 +6,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 #end
 import ${package}.build.Mod
 
-#if ($language == "kotlin")
 plugins {
+#if ($language == "java")
+    `java-library`
+#elseif ($language == "kotlin")
     kotlin("jvm") version "1.6.0-RC2"
+#end
 }
 
-#end
 subprojects {
     afterEvaluate {
         java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))

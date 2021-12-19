@@ -1,10 +1,12 @@
 import ${package}.build.Mod
 
 plugins {
-#if ($language == "kotlin")
+#if ($language == "java")
+    `java-library`
+#elseif ($language == "kotlin")
     kotlin("jvm")
-
 #end
+
     id("fabric-loom") version "0.10-SNAPSHOT"
 }
 
