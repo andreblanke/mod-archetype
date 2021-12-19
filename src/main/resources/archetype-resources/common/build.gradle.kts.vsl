@@ -24,6 +24,11 @@ repositories {
 
 dependencies {
     compileOnly(
+        group   = "org.spongepowered",
+        name    = "mixin",
+        version = "0.8.5")
+
+    compileOnly(
         group   = "me.shedaniel.cloth",
         name    = "cloth-config",
         version = Mod.Dependencies.ClothConfigApi.version)
