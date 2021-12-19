@@ -1,7 +1,9 @@
 import org.gradle.jvm.tasks.Jar
 
+#if ($language == "kotlin")
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+#end
 import ${package}.build.Mod
 
 #if ($language == "kotlin")

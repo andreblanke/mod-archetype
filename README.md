@@ -50,7 +50,8 @@ cd mod-archetype
 # Interactively generate a project based upon the archetype.
 ./mvnw archetype:generate                   \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
-  -DarchetypeArtifactId=mod-archetype
+  -DarchetypeArtifactId=mod-archetype       \
+  -DoutputDirectory=out
 ```
 
 The `archetype:generate` goal will prompt you for some information, most of which should be self-explanatory. Depending
