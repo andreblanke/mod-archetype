@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+  defaultValue elements are commented out until version 3.2.1 of the Maven Archetype Plugin is released,
+  fixing https://issues.apache.org/jira/browse/ARCHETYPE-308.
+-->
 <archetype-descriptor
     xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,26 +12,44 @@
     name="mod-template-archetype"
     partial="true">
   <requiredProperties>
-    <requiredProperty key="groupId"/>
-    <requiredProperty key="artifactId"/>
+    <requiredProperty key="groupId">
+      <validationRegex>^[a-z._]$</validationRegex>
+    </requiredProperty>
+    <requiredProperty key="artifactId">
+      <validationRegex>^[a-z-_]+$</validationRegex>
+    </requiredProperty>
     <requiredProperty key="package">
-      <defaultValue>${groupId}.${modId}</defaultValue>
+      <!--
+      <defaultValue>${groupId}.${artifactId}</defaultValue>
+      -->
     </requiredProperty>
-    <requiredProperty key="modId"/>
-    <requiredProperty key="modName"/>
+    <requiredProperty key="modId">
+      <!--
+      <defaultValue>${artifactId.replaceAll("-", "_")}</defaultValue>
+      -->
+      <validationRegex>^[a-zA-Z0-9_]{1,63}$</validationRegex>
+    </requiredProperty>
+    <requiredProperty key="modName">
+      <!--
+      <defaultValue>${modId.replaceAll("-", " ")}</defaultValue>
+      -->
+    </requiredProperty>
     <requiredProperty key="modDescription">
+      <!--
       <defaultValue/>
+      -->
     </requiredProperty>
-    <requiredProperty key="modAuthor">
-      <defaultValue>andreblanke</defaultValue>
-    </requiredProperty>
+    <requiredProperty key="modAuthor"/>
     <!-- Assume the most restrictive license by default. -->
     <requiredProperty key="modLicense">
+      <!--
       <defaultValue>All Rights Reserved</defaultValue>
+      -->
     </requiredProperty>
-    <!-- Currently valid values: ["java", "kotlin"]. Mixins must still be written in Java. -->
     <requiredProperty key="language">
+      <!--
       <defaultValue>java</defaultValue>
+      -->
       <validationRegex>^(java|kotlin)$</validationRegex>
     </requiredProperty>
   </requiredProperties>
