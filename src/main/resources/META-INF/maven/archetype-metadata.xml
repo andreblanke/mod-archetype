@@ -122,6 +122,7 @@
       <directory>fabric</directory>
       <includes>
         <include>src/main/resources/**</include>
+        <include>run/.gitkeep</include>
         <include>build.gradle.kts.vsl</include>
       </includes>
     </fileSet>
