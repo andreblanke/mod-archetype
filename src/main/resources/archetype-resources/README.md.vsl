@@ -27,13 +27,16 @@ mod-template
  │       └─ ${modName}.kt
  ├─ common/
  │   └─ src/main/
- │       │  # Package for mixins which must be written in Java.
- │       ├─ java/${packageDirs}/mixin/
 #if ($language == "java")
  │       └─ java/${packageDirs}/
+ │           ├─ mixin/
+ │           │   └─ .gitkeep
  │           │  # Common main class inherited by ${modName}Fabric and ${modName}Forge.
  │           └─ ${modName}.java
 #elseif ($language == "kotlin")
+ │       │  # Package for mixins which must be written in Java.
+ │       ├─ java/${packageDirs}/mixin/
+ │       │   └─ .gitkeep
  │       └─ kotlin/${packageDirs}/
  │           │  # Common main class inherited by ${modName}Fabric and ${modName}Forge.
  │           └─ ${modName}.kt
