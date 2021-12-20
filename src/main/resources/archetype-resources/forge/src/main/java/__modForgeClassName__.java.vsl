@@ -12,11 +12,13 @@ import net.minecraftforge.fml.common.Mod;
 @Mod(${modClassName}.ID)
 public final class ${modForgeClassName} extends ${modClassName} {
 
-    public ${modForgeClassName} {
+    public ${modForgeClassName}() {
         if (isClothConfigLoaded()) {
             ModLoadingContext
                 .get()
-                .registerExtensionPoint(ConfigGuiFactory.class, (minecraft, parent) -> getConfigScreen(parent));
+                .registerExtensionPoint(
+                    ConfigGuiFactory.class,
+                    () -> new ConfigGuiFactory((minecraft, parent) -> getConfigScreen(parent)));
         }
     }
 
@@ -27,6 +29,6 @@ public final class ${modForgeClassName} extends ${modClassName} {
 
     @Override
     public Screen getConfigScreen(final Screen parent) {
-        return AutoConfig.getConfigScreen(${modConfigDataClassName}.java, parent).get();
+        return AutoConfig.getConfigScreen(${modConfigDataClassName}.class, parent).get();
     }
 }
