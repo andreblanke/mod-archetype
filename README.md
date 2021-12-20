@@ -48,16 +48,12 @@ git clone https://github.com/andreblanke/mod-archetype
 # Navigate into the downloaded repository.
 cd mod-archetype
 
-# Install it to the local Maven repository using the included Maven wrapper mvnw to be able to use
-# the archetype.
-./mvnw install
-
-# Interactively generate a project based upon the archetype. The generated project will be placed
-# in the "out" directory.
-./mvnw archetype:generate                   \
+# Install the archetype to the local Maven repository and interactively generate a project based upon the archetype.
+# The generated project will be placed in the "target" directory.
+./mvnw install archetype:generate           \
   -DarchetypeGroupId=dev.andreblanke.mcmods \
   -DarchetypeArtifactId=mod-archetype       \
-  -DoutputDirectory=out
+  -DoutputDirectory=target
 ```
 
 The `archetype:generate` goal will prompt you for some information, most of which should be self-explanatory. Depending
@@ -91,6 +87,8 @@ template engine language.
 
 ## To-do
 
+- [ ] Replace [takari's Maven Wrapper](https://github.com/takari/maven-wrapper) with
+      [the official Apache one](https://maven.apache.org/wrapper/) once this is possible.
 - [ ] Add `org.apache.logging.log4j:logj4-api-kotlin:1.1.0` dependency. This is currently not possible because Forge
       is broken. While a [fork](https://github.com/OrionDevelopment/MinecraftForge/tree/fix/1.17.x%2Flibrary-loading)
       of Forge where the problems seem to have been resolved exists the changes have not been upstreamed yet.

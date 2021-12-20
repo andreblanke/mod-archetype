@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader
 
 import net.minecraft.client.gui.screens.Screen
 
-object ${modName}Fabric : ${modName}(), ModInitializer {
+object ${modFabricClassName} : ${modClassName}(), ModInitializer {
 
     override fun onInitialize() {
     }
@@ -16,5 +16,5 @@ object ${modName}Fabric : ${modName}(), ModInitializer {
         FabricLoader.getInstance().isModLoaded("cloth-config2")
 
     override fun getConfigScreen(parent: Screen): Screen =
-        AutoConfig.getConfigScreen(${modName}ConfigData::class.java, parent).get()
+        AutoConfig.getConfigScreen(${modConfigDataClassName}::class.java, parent).get()
 }

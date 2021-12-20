@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.client.gui.screens.Screen;
 
-public final class ${modName}Fabric extends ${modName} implements ModInitializer {
+public final class ${modFabricClassName} extends ${modClassName} implements ModInitializer {
 
     @Override
     public void onInitialize() {
@@ -20,7 +20,7 @@ public final class ${modName}Fabric extends ${modName} implements ModInitializer
 
     @Override
     public Screen getConfigScreen(final Screen parent) {
-        return AutoConfig.getConfigScreen(${modName}ConfigData.class, parent).get();
+        return AutoConfig.getConfigScreen(${modConfigDataClassName}.class, parent).get();
     }
 }
 

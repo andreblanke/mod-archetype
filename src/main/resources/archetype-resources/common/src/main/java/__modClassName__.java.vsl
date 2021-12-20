@@ -5,20 +5,20 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 
 import net.minecraft.client.gui.screens.Screen;
 
-public abstract class ${modName} {
+public abstract class ${modClassName} {
 
-    private static ${modName} instance;
+    private static ${modClassName} instance;
 
     public static final String ID = "${modId}";
 
-    protected ${modName}() {
+    protected ${modClassName}() {
         instance = this;
 
         if (isClothConfigLoaded())
-            AutoConfig.register(${modName}ConfigData.class, JanksonConfigSerializer::new);
+            AutoConfig.register(${modConfigDataClassName}.class, JanksonConfigSerializer::new);
     }
 
-    public static ${modName} getInstance() {
+    public static ${modClassName} getInstance() {
         return instance;
     }
 

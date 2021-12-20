@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  defaultValue elements are commented out until version 3.2.1 of the Maven Archetype Plugin is released,
-  fixing https://issues.apache.org/jira/browse/ARCHETYPE-308.
--->
 <archetype-descriptor
     xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -12,52 +8,55 @@
     name="mod-template-archetype"
     partial="true">
   <requiredProperties>
+    <requiredProperty key="modName">
+      <!-- See 'modId' for the restrictions on the length of the name, as modId is derived from modName by default. -->
+      <validationRegex>^[- _a-zA-Z0-9]{1,63}$</validationRegex>
+    </requiredProperty>
+    <requiredProperty key="modId">
+      <defaultValue>${modName.replaceAll("[- ]", "_").toLowerCase()}</defaultValue>
+      <!-- See 'id' at https://fabricmc.net/wiki/documentation:fabric_mod_json. -->
+      <validationRegex>^[_a-zA-Z0-9]{1,63}$</validationRegex>
+    </requiredProperty>
     <requiredProperty key="groupId">
       <validationRegex>^[a-z._]+$</validationRegex>
     </requiredProperty>
     <requiredProperty key="artifactId">
+      <defaultValue>${modName.replaceAll("[_ ]", "-").toLowerCase()}</defaultValue>
       <validationRegex>^[a-z-_]+$</validationRegex>
     </requiredProperty>
     <requiredProperty key="package">
-      <!--
-      <defaultValue>${groupId}.${artifactId}</defaultValue>
-      -->
+      <defaultValue>${groupId}.${artifactId.replaceAll("-", "")}</defaultValue>
+      <validationRegex>^[a-zA-Z_](\.?[a-zA-Z_]+)*$</validationRegex>
     </requiredProperty>
-    <requiredProperty key="modId">
-      <!--
-      <defaultValue>${artifactId.replaceAll("-", "_")}</defaultValue>
-      -->
-      <validationRegex>^[a-zA-Z0-9_]{1,63}$</validationRegex>
+    <requiredProperty key="modClassName">
+      <defaultValue>${modName.replaceAll("[-_ ]", "")}</defaultValue>
     </requiredProperty>
-    <requiredProperty key="modName">
-      <!--
-      <defaultValue>${modId.replaceAll("-", " ")}</defaultValue>
-      -->
+    <requiredProperty key="modFabricClassName">
+      <defaultValue>${modClassName}Fabric</defaultValue>
     </requiredProperty>
-    <requiredProperty key="modDescription">
-      <!--
-      <defaultValue/>
-      -->
+    <requiredProperty key="modForgeClassName">
+      <defaultValue>${modClassName}Forge</defaultValue>
     </requiredProperty>
+    <requiredProperty key="modConfigDataClassName">
+      <defaultValue>${modClassName}ConfigData</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="modDescription"/>
     <requiredProperty key="modAuthor"/>
     <!-- Assume the most restrictive license by default. -->
     <requiredProperty key="modLicense">
-      <!--
       <defaultValue>All Rights Reserved</defaultValue>
-      -->
     </requiredProperty>
     <requiredProperty key="language">
-      <!--
       <defaultValue>java</defaultValue>
-      -->
       <validationRegex>^(java|kotlin)$</validationRegex>
     </requiredProperty>
   </requiredProperties>
+
   <fileSets>
     <fileSet filtered="true" packaged="false">
       <directory>.idea/runConfigurations</directory>
       <includes>
-        <include>*.xml</include>
+        <include>*</include>
       </includes>
     </fileSet>
 
@@ -82,15 +81,15 @@
       <directory>common/src/main/java</directory>
       <includes>
         <include>mixin/.gitkeep</include>
-        <include>__modName__.java.vsl</include>
-        <include>__modName__ConfigData.java.vsl</include>
+        <include>__modClassName__.java.vsl</include>
+        <include>__modConfigDataClassName__.java.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
       <directory>common/src/main/kotlin</directory>
       <includes>
-        <include>__modName__.kt.vsl</include>
-        <include>__modName__ConfigData.kt.vsl</include>
+        <include>__modClassName__.kt.vsl</include>
+        <include>__modConfigDataClassName__.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">
@@ -107,7 +106,7 @@
       <includes>
         <include>asm/EarlyRiser.java.vsl</include>
         <include>integration/ModMenuIntegration.java.vsl</include>
-        <include>__modName__Fabric.java.vsl</include>
+        <include>__modFabricClassName__.java.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
@@ -115,7 +114,7 @@
       <includes>
         <include>asm/EarlyRiser.kt.vsl</include>
         <include>integration/ModMenuIntegration.kt.vsl</include>
-        <include>__modName__Fabric.kt.vsl</include>
+        <include>__modFabricClassName__.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">
@@ -131,13 +130,13 @@
     <fileSet filtered="true" packaged="true">
       <directory>forge/src/main/java</directory>
       <includes>
-        <include>__modName__Forge.java.vsl</include>
+        <include>__modForgeClassName__.java.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true">
       <directory>forge/src/main/kotlin</directory>
       <includes>
-        <include>__modName__Forge.kt.vsl</include>
+        <include>__modForgeClassName__.kt.vsl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="false">

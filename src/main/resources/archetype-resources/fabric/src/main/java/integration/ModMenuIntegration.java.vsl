@@ -3,14 +3,14 @@ package ${package}.integration;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
-import ${package}.${modName};
+import ${package}.${modClassName};
 
 public final class ModMenuIntegration implements ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        if (!${modName}.getInstance().isClothConfigLoaded())
+        if (!${modClassName}.getInstance().isClothConfigLoaded())
             return ModMenuApi.super.getModConfigScreenFactory();
-        return (parent) -> ${modName}.getInstance().getConfigScreen(parent);
+        return (parent) -> ${modClassName}.getInstance().getConfigScreen(parent);
     }
 }

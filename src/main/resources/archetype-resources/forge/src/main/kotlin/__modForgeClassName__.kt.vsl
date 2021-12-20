@@ -9,8 +9,8 @@ import net.minecraftforge.fml.ModList
 import net.minecraftforge.fml.ModLoadingContext
 import net.minecraftforge.fml.common.Mod
 
-@Mod(${modName}.ID)
-object ${modName}Forge : ${modName}() {
+@Mod(${modClassName}.ID)
+object ${modForgeClassName} : ${modClassName}() {
 
     init {
         if (isClothConfigLoaded()) {
@@ -26,5 +26,5 @@ object ${modName}Forge : ${modName}() {
         ModList.get().isLoaded("cloth_config")
 
     override fun getConfigScreen(parent: Screen): Screen =
-        AutoConfig.getConfigScreen(${modName}ConfigData::class.java, parent).get()
+        AutoConfig.getConfigScreen(${modConfigDataClassName}::class.java, parent).get()
 }

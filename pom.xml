@@ -12,6 +12,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <url>https://repository.apache.org/snapshots/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <build>
     <resources>
       <resource>
@@ -43,13 +50,22 @@
           <addDefaultExcludes>false</addDefaultExcludes>
         </configuration>
       </plugin>
+      <!--
+        Force the of a development version of the Maven Archetype Plugin, as the latest true release, 3.2.0, still has
+        some bugs such as https://issues.apache.org/jira/browse/ARCHETYPE-308.
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>3.2.1-SNAPSHOT</version>
+      </plugin>
     </plugins>
 
     <extensions>
       <extension>
         <groupId>org.apache.maven.archetype</groupId>
         <artifactId>archetype-packaging</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.1-SNAPSHOT</version>
       </extension>
     </extensions>
   </build>

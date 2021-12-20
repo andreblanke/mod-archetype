@@ -5,7 +5,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer
 
 import net.minecraft.client.gui.screens.Screen
 
-abstract class ${modName} protected constructor() {
+abstract class ${modClassName} protected constructor() {
 
     companion object {
         const val ID = "${modId}"
@@ -13,12 +13,12 @@ abstract class ${modName} protected constructor() {
 
     init {
         /*
-         * isClothConfigLoaded should be safe to call even if the ${modName} subclass is not initialized yet because it
-         * should not rely on any state.
+         * isClothConfigLoaded should be safe to call even if the ${modClassName} subclass is not initialized yet
+         * because it should not rely on any state.
          */
         @Suppress("LeakingThis")
         if (isClothConfigLoaded())
-            AutoConfig.register(${modName}ConfigData::class.java, ::JanksonConfigSerializer)
+            AutoConfig.register(${modConfigDataClassName}::class.java, ::JanksonConfigSerializer)
     }
 
     abstract fun isClothConfigLoaded(): Boolean

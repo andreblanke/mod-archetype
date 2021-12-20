@@ -1,0 +1,12 @@
+#set($d = '$')
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="fabric runClient" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="net.fabricmc.devlaunchinjector.Main" />
+    <module name="${artifactId}.fabric.main" />
+    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=${d}PROJECT_DIR$/fabric/.gradle/loom-cache/launch.cfg -Dfabric.dli.env=client -Dfabric.dli.main=net.fabricmc.loader.launch.knot.KnotClient" />
+    <option name="WORKING_DIRECTORY" value="${d}PROJECT_DIR$/fabric/run" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

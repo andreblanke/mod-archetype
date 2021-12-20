@@ -9,10 +9,10 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod(${modName}.ID)
-public final class ${modName}Forge extends ${modName} {
+@Mod(${modClassName}.ID)
+public final class ${modForgeClassName} extends ${modClassName} {
 
-    public ${modName}Forge() {
+    public ${modForgeClassName} {
         if (isClothConfigLoaded()) {
             ModLoadingContext
                 .get()
@@ -27,6 +27,6 @@ public final class ${modName}Forge extends ${modName} {
 
     @Override
     public Screen getConfigScreen(final Screen parent) {
-        return AutoConfig.getConfigScreen(${modName}ConfigData.java, parent).get();
+        return AutoConfig.getConfigScreen(${modConfigDataClassName}.java, parent).get();
     }
 }

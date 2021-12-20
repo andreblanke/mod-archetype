@@ -3,13 +3,13 @@ package ${package}.integration
 import com.terraformersmc.modmenu.api.ConfigScreenFactory
 import com.terraformersmc.modmenu.api.ModMenuApi
 
-import ${package}.${modName}Fabric
+import ${package}.${modClassName}
 
 class ModMenuIntegration : ModMenuApi {
 
     override fun getModConfigScreenFactory(): ConfigScreenFactory<*> {
-        if (!${modName}Fabric.isClothConfigLoaded())
+        if (!${modFabricClassName}.isClothConfigLoaded())
             return super.getModConfigScreenFactory()
-        return ConfigScreenFactory { ${modName}Fabric.getConfigScreen(it) }
+        return ConfigScreenFactory { ${modFabricClassName}.getConfigScreen(it) }
     }
 }

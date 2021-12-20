@@ -23,11 +23,11 @@
     ],
     "main": [
 #if ($language == "java")
-      "${package}.${modName}Fabric"
+      "${package}.${modFabricClassName}"
 #elseif ($language == "kotlin")
       {
         "adapter": "kotlin",
-        "value": "${package}.${modName}Fabric"
+        "value": "${package}.${modFabricClassName}"
       }
 #end
     ],
