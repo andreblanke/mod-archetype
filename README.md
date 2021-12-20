@@ -15,10 +15,6 @@ The created project is already configured to support [Mixins](https://github.com
 Projects generated from this archetype make use of the fact that Mojang released official obfuscation mappings which
 allows us to write mod loader-agnostic code that targets both Fabric and Forge in the `common` module.
 
-> Note: There are currently still some issues with the generated project which should be resolved in the future.
->       The common module is currently not fully integrated into the build and the run configurations still need
->       manual tweaking.
-
 ## Remarks
 
 The repository previously contained an actual template instead of a Maven archetype capable of generating such a
@@ -36,7 +32,6 @@ The repository is no longer marked as template repository because it is not suff
 
 - [Remarks](#remarks)
 - [Creating a new project](#creating-a-new-project)
-- [Known caveats](#known-caveats)
 - [To-do](#to-do)
 
 ## Creating a new project
@@ -59,31 +54,6 @@ cd mod-archetype
 The `archetype:generate` goal will prompt you for some information, most of which should be self-explanatory. Depending
 on the chosen `language` property (valid values are `java` and `kotlin` currently), a mod project with the specified
 language will be generated.
-
-## Known caveats
-
-This section mainly serves as a reminder of what could be approved regarding the archetype but may also be interesting
-for some potential users.
-
-### Lacking validation of some required properties
-
-TL;DR: one can specify a `modName` property containing spaces which will cause a project to be generated that does not
-       compile without requiring (albeit few) manual edits.
-
-Maven archetypes currently do not seem to support proper validation of required properties (and their post-processing,
-e.g. editing of invalid values) such as `modName` per se, which prevents us from being able to handle mod names
-containing spaces correctly (such as in the case of `modName = "Mod Name"`). `archetype:generate` will thus happily
-generate projects with files  like `Mod Name.java` containing source code like
-`public abstract class Mod Name { [...] }` which, of course, is neither valid Kotlin nor Java code.
-
-While the `validationRegex` element has been added as part of Maven 3.0.0, [it seems to only support the interactive
-generation of projects from this archetype](https://issues.apache.org/jira/browse/ARCHETYPE-532).
-
-One could work around this by renaming files like `Mod Name.java` and similar ones to `ModName.java` using
-`archetype-post-generate.groovy`, a script executed as part of the `archetype:generate` goal, which, however, would
-still leave us with the need to handle substitutions within files, i.e. ones of the form `${modName}`, correctly.
-That is hard because we cannot do more complex operations (such as throwing exceptions) using just the Apache Velocity
-template engine language.
 
 ## To-do
 
