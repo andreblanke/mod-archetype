@@ -76,3 +76,11 @@ dependencies {
 
     compileOnly(project(":common"))
 }
+
+tasks {
+    processResources {
+        filesMatching("fabric.mod.json") {
+            expand("Mod" to Mod)
+        }
+    }
+}

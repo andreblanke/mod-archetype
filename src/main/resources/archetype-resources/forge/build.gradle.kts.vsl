@@ -85,3 +85,11 @@ dependencies {
 
     compileOnly(project(":common"))
 }
+
+tasks {
+    processResources {
+        filesMatching("META-INF/mods.toml") {
+            expand("Mod" to Mod)
+        }
+    }
+}
