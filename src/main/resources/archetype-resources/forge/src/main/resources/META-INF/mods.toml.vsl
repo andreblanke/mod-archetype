@@ -1,7 +1,7 @@
 #set($d = '$')
 #if ($language == "java")
   #set ($modLoader = "javafml")
-  #set ($loaderVersion = "[39,)")
+  #set ($loaderVersion = "[38,)")
 #elseif ($language == "kotlin")
   #set ($modLoader = "kotlinforforge")
   #set ($loaderVersion = "[3,)")
@@ -31,7 +31,7 @@ side="BOTH"
 [[dependencies.${d}{Mod.ID}]]
 modId="forge"
 mandatory=true
-versionRange="[39,)"
+versionRange="[38,)"
 ordering="NONE"
 side="BOTH"
 
