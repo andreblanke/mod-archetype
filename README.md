@@ -55,6 +55,19 @@ The `archetype:generate` goal will prompt you for some information, most of whic
 on the chosen `language` property (valid values are `java` and `kotlin` currently), a mod project with the specified
 language will be generated.
 
+## Pitfalls
+
+- Forge (at least version 38.0.14) will "silently" remove the `build/resources/main` directory from its development
+  classpath if the version of `javafml` specified inside `build/resources/main/META-INF/mods.toml` is not compatible.
+  While it prints an error about this, the loading will most likely fail without this explicitly being shown as a
+  reason, as `${modId}.mixins.json` will not be found.
+
+- Fabric uses the deprecated `archivesBaseName` property to determine the default name of the generated mixin refmap
+  file (`${archivesBaseName}-refmap.json`). Even if `archiveBaseName` from the jar task is set, `archivesBaseName` is
+  still required to be set, as otherwise the generated refmap will bear the name `fabric-refmap.json` which when run
+  with another mod that also missed specifying `archivesBaseName` produces an error regarding the loading of mixins,
+  as two refmaps named `fabric-refmap.json` are present.
+
 ## To-do
 
 - [ ] Replace [takari's Maven Wrapper](https://github.com/takari/maven-wrapper) with
