@@ -32,6 +32,7 @@ The repository is no longer marked as template repository because it is not suff
 
 - [Remarks](#remarks)
 - [Creating a new project](#creating-a-new-project)
+- [Pitfalls](#pitfalls)
 - [To-do](#to-do)
 
 ## Creating a new project

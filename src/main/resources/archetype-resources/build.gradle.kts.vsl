@@ -18,6 +18,11 @@ subprojects {
     afterEvaluate {
         java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
+        base {
+            // See README.md#pitfalls for why this deprecated property is set.
+            archivesBaseName = rootProject.name;
+        }
+
         tasks {
             withType<JavaCompile> {
                 if (this@subprojects.name != "common")
