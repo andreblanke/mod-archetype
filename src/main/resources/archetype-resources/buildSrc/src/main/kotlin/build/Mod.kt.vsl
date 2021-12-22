@@ -61,6 +61,14 @@ object Mod : Versioned {
         }
 
         object Forge : Versioned {
+#if ($language == "java")
+            /*
+             * Make sure this version matches the javafml loaderVersion in mods.toml.
+             *
+             * TODO: Keep the two in sync by introducing a "versionMajor" property and allow access to that through
+             *       "Mop.Dependencies.Forge.versionMajor".
+             */
+#end
             private const val VERSION = "38.0.14"
 
             override val version: String
@@ -69,6 +77,12 @@ object Mod : Versioned {
 
             object Language {
                 object Kotlin : Versioned {
+
+                    /*
+                     * Make sure this version matches the kotlinforforge in mods.toml.
+                     *
+                     * TODO: Same as above.
+                     */
                     override val version = "3.0.0"
                 }
             }
