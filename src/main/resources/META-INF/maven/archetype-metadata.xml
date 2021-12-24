@@ -18,11 +18,11 @@
       <validationRegex>^[_a-zA-Z0-9]{1,63}$</validationRegex>
     </requiredProperty>
     <requiredProperty key="groupId">
-      <validationRegex>^[a-z._]+$</validationRegex>
+      <validationRegex>^[a-z0-9._]+$</validationRegex>
     </requiredProperty>
     <requiredProperty key="artifactId">
       <defaultValue>${modName.replaceAll("[_ ]", "-").toLowerCase()}</defaultValue>
-      <validationRegex>^[a-z-_]+$</validationRegex>
+      <validationRegex>^[-_a-z0-9]+$</validationRegex>
     </requiredProperty>
     <requiredProperty key="package">
       <defaultValue>${groupId}.${artifactId.replaceAll("-", "")}</defaultValue>
